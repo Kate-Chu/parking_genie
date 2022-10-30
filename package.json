@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
+    "@types/proj4": "^2.5.2",
     "@types/react-redux": "^7.1.24",
     "leaflet": "^1.9.2",
+    "proj4": "^2.8.0",
+    "proj4leaflet": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.1.0",
