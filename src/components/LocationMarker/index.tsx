@@ -1,21 +1,22 @@
-import { useState, useEffect } from 'react';
-import { LatLngExpression } from 'leaflet';
+import { useEffect } from 'react';
 import { Marker, Popup, useMap } from 'react-leaflet';
+import { userActions } from '../../store/useLocationStore';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 const LocationMarker = () => {
-  const linePosition: LatLngExpression = [25.077227381690932, 121.5756255526039];
   const map = useMap();
-  const [position, setPosition] = useState<LatLngExpression>(linePosition);
+  const currentLocation = useAppSelector((state) => state.user.userState.currentLocation);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     map.locate().on('locationfound', (e) => {
-      setPosition(e.latlng);
+      dispatch(userActions.setCurrentLocation(e.latlng));
       map.flyTo(e.latlng, map.getZoom());
     });
-  }, [map]);
+  }, [dispatch, map]);
 
-  return position === null ? null : (
-    <Marker position={position}>
+  return currentLocation === null ? null : (
+    <Marker position={currentLocation}>
       <Popup>Your current location</Popup>
     </Marker>
   );
