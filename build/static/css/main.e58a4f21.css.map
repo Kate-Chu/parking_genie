@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.e58a4f21.css","mappings":"AAAA,mBAEE,aADA,WACA;ACFF;;CAAA,w4JAIA,KACE,SACA","sources":["components/Map/Map.scss","css/app.scss"],"sourcesContent":[".leaflet-container {\n  width: 100vw;\n  height: 100vh;\n}\n","@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\nbody {\n  margin: 0;\n  padding: 0;\n}\n"],"names":[],"sourceRoot":""}
