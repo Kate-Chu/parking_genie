@@ -1,0 +1,641 @@
+[
+  {
+    "id": "001",
+    "area": "信義區",
+    "name": "府前廣場地下停車場",
+    "type": "1",
+    "type2": "2",
+    "summary": "為地下二層停車場，計有1998個小型車停車格，1337個機車停車位",
+    "address": "松壽路1號地下",
+    "tel": "27057716",
+    "payex": "小型車全日月票4200元，周邊里里民全日月票3360元，所在里里民全日月票2940元，夜間月票1000元(限周一至周五19-8，及周六、日與行政機關放假之紀念日、民俗日)，小型車計時30元(9-18)，夜間計時10元(18-9)；機車計時10元(當日當次上限20元)，機車月票300元。",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "306812.928",
+    "tw97y": "2769892.95",
+    "totalcar": 1998,
+    "totalmotor": 1360,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "40",
+    "Handicap_First": "45",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~09",
+          "Fare": "10"
+        },
+        {
+          "Period": "09~18",
+          "Fare": "30"
+        },
+        {
+          "Period": "18~24",
+          "Fare": "10"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~09",
+          "Fare": "10"
+        },
+        {
+          "Period": "09~18",
+          "Fare": "30"
+        },
+        {
+          "Period": "18~24",
+          "Fare": "10"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.03648987",
+          "Ycod": "121.5621068",
+          "Address": "基隆路一段"
+        },
+        {
+          "Xcod": "25.036014",
+          "Ycod": "121.563163",
+          "Address": "松壽路"
+        },
+        {
+          "Xcod": "25.035975",
+          "Ycod": "121.561532",
+          "Address": "基隆路一段車行地下道"
+        }
+      ]
+    }
+  },
+  {
+    "id": "002",
+    "area": "信義區",
+    "name": "松壽廣場地下停車場",
+    "type": "1",
+    "type2": "2",
+    "summary": "立體式小型車446格(含身心障礙停車位6格)。",
+    "address": "松智路15號地下",
+    "tel": "27057716",
+    "payex": "計時：30元/時(周一至周五9-22)、40元/時(周六至周日與行政機關放假之紀念日與民俗日9-22)、10元/時(每日22-9)，全程半小時計費。",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "307143.740",
+    "tw97y": "2770011.52",
+    "totalcar": 455,
+    "totalmotor": 0,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "8",
+    "Handicap_First": "9",
+    "totallargemotor": "0",
+    "ChargingStation": "4",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~09",
+          "Fare": "10"
+        },
+        {
+          "Period": "09~22",
+          "Fare": "30"
+        },
+        {
+          "Period": "22~24",
+          "Fare": "10"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~09",
+          "Fare": "10"
+        },
+        {
+          "Period": "09~22",
+          "Fare": "40"
+        },
+        {
+          "Period": "22~24",
+          "Fare": "10"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.036966",
+          "Ycod": "121.565523",
+          "Address": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": "003",
+    "area": "信義區",
+    "name": "臺北市災害應變中心地下停車場",
+    "type": "1",
+    "type2": "1",
+    "summary": "立體式小型車169格(含身心障礙停車位5格)。立體式機車208格(含身心障礙停車位5格)。",
+    "address": "莊敬路391巷11弄2號地下",
+    "tel": "2345-3859",
+    "payex": "小型車計時30元，全日月票5000元，日間月票2600元(7-19) 機車計時10元(當日當次最高收費上限20元，隔日另計)；月票300元",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "307142.121",
+    "tw97y": "2769087.67",
+    "totalcar": 169,
+    "totalmotor": 200,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "3",
+    "Handicap_First": "5",
+    "totallargemotor": "1",
+    "ChargingStation": "2",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~24",
+          "Fare": "30"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~24",
+          "Fare": "30"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.028728",
+          "Ycod": "121.566111",
+          "Address": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": "004",
+    "area": "信義區",
+    "name": "雅祥公園地下停車場",
+    "type": "1",
+    "type2": "1",
+    "summary": "立體式小型車204格(含身心障礙停車位5格)。",
+    "address": "松隆路123巷7號地下",
+    "tel": "2766-1258",
+    "payex": "周一至周四計時40元 周五至周日及政府行政機關放假之紀念日與民俗日計時50元 全日月票4800元，夜間月票2000元(限周一至周五19-8，及周六、日與行政機關放假之紀念日、民俗日使用) ",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "307703.059",
+    "tw97y": "2771154.51",
+    "totalcar": 204,
+    "totalmotor": 0,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "4",
+    "Handicap_First": "5",
+    "totallargemotor": "1",
+    "ChargingStation": "6",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~24",
+          "Fare": "30"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~24",
+          "Fare": "40"
+        },
+        {
+          "Period": "00~18",
+          "Fare": "30"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.04754574",
+          "Ycod": "121.5716298",
+          "Address": "松隆路123巷"
+        }
+      ]
+    }
+  },
+  {
+    "id": "005",
+    "area": "北投區",
+    "name": "立農公園地下停車場",
+    "type": "1",
+    "type2": "1",
+    "summary": "立體式小型車204格(含身心障礙停車位5格)。立體式機車95格(含身心障礙停車位2格)。",
+    "address": "承德路7段372號地下",
+    "tel": "2823-0834",
+    "payex": "小型車計時30元，全日月票4800元，日間月票2800元(7-19)，夜間月票2000元(19-8)，所在里里民全日月票3360元，一般里民全日月票3600元",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "300781.892",
+    "tw97y": "2778989.94",
+    "totalcar": 204,
+    "totalmotor": 0,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "6",
+    "Handicap_First": "5",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~24",
+          "Fare": "20"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~24",
+          "Fare": "20"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.118127",
+          "Ycod": "121.502995",
+          "Address": "承德路七段"
+        }
+      ]
+    }
+  },
+  {
+    "id": "006",
+    "area": "北投區",
+    "name": "捷運奇岩站轉乘停車場",
+    "type": "1",
+    "type2": "2",
+    "summary": "平面式機車154格(含身心障礙停車位5格)。",
+    "address": "台北市",
+    "tel": "2705-7716",
+    "payex": "計次:20元/次(隔日另計，以凌晨2時為基準)。月票:300元/月(身障者5折優惠)。",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "300530.560",
+    "tw97y": "2779877.67",
+    "totalcar": 0,
+    "totalmotor": 0,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "0",
+    "Handicap_First": "0",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {},
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.034795",
+          "Ycod": "121.572818",
+          "Address": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": "007",
+    "area": "萬華區",
+    "name": "萬華國中地下停車場",
+    "type": "1",
+    "type2": "1",
+    "summary": "立體式小型車508格(含身心障礙停車位11格)。立體式機車211格(含身心障礙停車位4格)。",
+    "address": "西藏路201號地下",
+    "tel": "2307-8457",
+    "payex": "小型車計時20元 全日月票4800元，日間月票2800元(7-19)，夜間月票2000元(19-8) 機車計次20元；月票300元",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "300378.533",
+    "tw97y": "2769081.71",
+    "totalcar": 519,
+    "totalmotor": 215,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "11",
+    "Handicap_First": "11",
+    "totallargemotor": "8",
+    "ChargingStation": "4",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~08",
+          "Fare": "10"
+        },
+        {
+          "Period": "08~22",
+          "Fare": "20"
+        },
+        {
+          "Period": "22~24",
+          "Fare": "10"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~08",
+          "Fare": "10"
+        },
+        {
+          "Period": "08~22",
+          "Fare": "20"
+        },
+        {
+          "Period": "22~24",
+          "Fare": "10"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.029537",
+          "Ycod": "121.49954",
+          "Address": "西藏路"
+        }
+      ]
+    }
+  },
+  {
+    "id": "008",
+    "area": "中山區",
+    "name": "捷運劍南路站轉乘停車場",
+    "type": "1",
+    "type2": "1",
+    "summary": "立體式小型車282格(含身心障礙停車位6格)。立體式機車52格(含身心障礙停車位2格)。",
+    "address": "台北市中山區北安路798號1樓、B1-B2",
+    "tel": "2246-1708",
+    "payex": "計時：小型車平日20元/時(06-22)、10元/時(22-06)，平面場收費上限80元；假日30元/時(06-11)、40元/時(11-22)、10元/時(22-06)，無最高上限，全程以半小時計。計次：機車20元/次(隔日隔次另計，以凌晨2時為基準)。月租：小型車全日2,500元/月，機車全日300元/月。",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "306055.310",
+    "tw97y": "2775322.57",
+    "totalcar": 288,
+    "totalmotor": 54,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "0",
+    "Handicap_First": "6",
+    "totallargemotor": "0",
+    "ChargingStation": "0",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {},
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.03607",
+          "Ycod": "121.56306",
+          "Address": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": "014",
+    "area": "信義區",
+    "name": "興雅國中地下停車場",
+    "type": "1",
+    "type2": "1",
+    "summary": "立體式小型車447格(含身心障礙停車位9格)。",
+    "address": "松德路200巷18號地下",
+    "tel": "2758-5499",
+    "payex": "計時30元，全日月票4800元，日間月票2800元(7-19)，夜間月票2200元(限19-8)",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "307803.715",
+    "tw97y": "2769766.09",
+    "totalcar": 447,
+    "totalmotor": 0,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "8",
+    "Handicap_First": "9",
+    "totallargemotor": "2",
+    "ChargingStation": "4",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~08",
+          "Fare": "10"
+        },
+        {
+          "Period": "08~18",
+          "Fare": "20"
+        },
+        {
+          "Period": "18~24",
+          "Fare": "10"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~08",
+          "Fare": "10"
+        },
+        {
+          "Period": "08~18",
+          "Fare": "20"
+        },
+        {
+          "Period": "18~24",
+          "Fare": "10"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.03479453",
+          "Ycod": "121.5728183",
+          "Address": "松德路200巷"
+        }
+      ]
+    }
+  },
+  {
+    "id": "015",
+    "area": "萬華區",
+    "name": "峨眉立體停車場",
+    "type": "1",
+    "type2": "1",
+    "summary": "建物附設立體式小型車518格(含身心障礙停車位11格，孕婦、育有6歲以下兒童停車位11格)。建物附設立體式機車1653格(含身心障礙停車位12格)。",
+    "address": "峨眉街83號",
+    "tel": "2388-8663",
+    "payex": "計時：小型車周一至周五(10-22)50元/時、(22-10)10元/時；小型車周六、周日與行政機關放假之紀念日與民俗日(10-24)60元/時、(24-10)10元/時，全程以半小時計費。月租：小型車全日月票4,800元/月，日間月票4,000元/月(每日10-22)，夜間月票500元/月(每日21-9)；機車全日月票300元/月。計次：機車20元/次，隔日另計。",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "300995.827",
+    "tw97y": "2770750.36",
+    "totalcar": 518,
+    "totalmotor": 1653,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "11",
+    "Handicap_First": "11",
+    "totallargemotor": "0",
+    "ChargingStation": "4",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~10",
+          "Fare": "10"
+        },
+        {
+          "Period": "10~22",
+          "Fare": "40"
+        },
+        {
+          "Period": "22~24",
+          "Fare": "10"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~10",
+          "Fare": "10"
+        },
+        {
+          "Period": "10~22",
+          "Fare": "50"
+        },
+        {
+          "Period": "22~24",
+          "Fare": "10"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.04455",
+          "Ycod": "121.50561",
+          "Address": "昆明街"
+        }
+      ]
+    }
+  },
+  {
+    "id": "016",
+    "area": "中正區",
+    "name": "中山堂地下停車場",
+    "type": "1",
+    "type2": "1",
+    "summary": "立體式小型車440格(含身心障礙停車位9格)。",
+    "address": "延平南路98號地下",
+    "tel": "2655-08-18",
+    "payex": "計時：周一至周五計時40元(08-20)，計時10元(20-08)，周六日及政府行政機關放假之紀念日與民俗節日計時40元(10-20)，計時10元(20-10)。月租：全日月票4800元，日間月票3600元(07-19)，夜間月票1000元(19-08) 。",
+    "serviceTime": "00:00:00~23:59:59",
+    "tw97x": "301507.707",
+    "tw97y": "2770749.58",
+    "totalcar": 450,
+    "totalmotor": 0,
+    "totalbike": 0,
+    "totalbus": 0,
+    "Pregnancy_First": "8",
+    "Handicap_First": "9",
+    "totallargemotor": "1",
+    "ChargingStation": "7",
+    "Taxi_OneHR_Free": "0",
+    "AED_Equipment": "0",
+    "CellSignal_Enhancement": "0",
+    "Accessibility_Elevator": "0",
+    "Phone_Charge": "0",
+    "Child_Pickup_Area": "0",
+    "FareInfo": {
+      "WorkingDay": [
+        {
+          "Period": "00~08",
+          "Fare": "10"
+        },
+        {
+          "Period": "08~20",
+          "Fare": "40"
+        },
+        {
+          "Period": "20~24",
+          "Fare": "10"
+        }
+      ],
+      "Holiday": [
+        {
+          "Period": "00~10",
+          "Fare": "10"
+        },
+        {
+          "Period": "10~20",
+          "Fare": "40"
+        },
+        {
+          "Period": "20~24",
+          "Fare": "10"
+        }
+      ]
+    },
+    "EntranceCoord": {
+      "EntrancecoordInfo": [
+        {
+          "Xcod": "25.044164",
+          "Ycod": "121.510693",
+          "Address": "武昌街一段"
+        }
+      ]
+    }
+  }
+]

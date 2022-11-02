@@ -1,3 +1,5 @@
+// Parking Lots Type
+
 type FareInfo = {
   Period: string;
   Fare: string;
@@ -34,14 +36,22 @@ export type ParkingLotsInfo = {
   Accessibility_Elevator: string;
   Phone_Charge: string;
   Child_Pickup_Area: string;
-  FareInfo: {
-    WorkingDay: FareInfo[];
-    Holiday: FareInfo[];
-  };
+  FareInfo:
+    | {
+        WorkingDay?: FareInfo[] | undefined;
+        Holiday?: FareInfo[] | undefined;
+      }
+    | undefined;
   EntranceCoord: {
     EntrancecoordInfo: EntrancecoordInfo[];
   };
 };
 
-// export type AvailableInfo = {
-// }
+// Available Parking Space Type
+
+export type AvailableSpacesInfo = {
+  id: string;
+  availablecar: number;
+  availablemotor: number;
+  availablebus: number;
+};

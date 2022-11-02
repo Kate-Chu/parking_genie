@@ -1,4 +1,4 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { LatLngExpression } from 'leaflet';
 
 export type userState = {
@@ -21,10 +21,6 @@ const initialUserState: userState = {
   },
 };
 
-// const initialParkingLotsState = {
-//   parkingLotsInfo: [],
-// };
-
 const userSlice = createSlice({
   name: 'user',
   initialState: initialUserState,
@@ -35,23 +31,5 @@ const userSlice = createSlice({
   },
 });
 
-// const parkingLotsSlice = createSlice({
-//   name: 'parkingLots',
-//   initialState: initialParkingLotsState,
-//   reducers: {},
-// });
-
-const store = configureStore({
-  reducer: {
-    user: userSlice.reducer,
-    // parkingLots: parkingLotsSlice.reducer
-  },
-});
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
 export const userActions = userSlice.actions;
-// export const parkingLotsActions = parkingLotsSlice.actions;
-
-export default store;
+export default userSlice.reducer;

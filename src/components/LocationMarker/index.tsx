@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Marker, Popup, useMap } from 'react-leaflet';
-import { userActions } from '../../store/useLocationStore';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { userActions } from '../../store/userSlice';
+import { useAppDispatch, useAppSelector } from '../../store/useTypedSelector';
 
 const LocationMarker = () => {
   const map = useMap();
