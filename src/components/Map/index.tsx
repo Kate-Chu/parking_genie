@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
-import { LatLngExpression } from 'leaflet';
-import { useAppDispatch, useAppSelector } from '../../store/useTypedSelector';
-// import { useAppSelector } from '../hooks/useTypedSelector';
+import { LINE_TAIWAN } from '../../data/default_data';
+import { useAppDispatch, useAppSelector } from '../../store';
 import LocationMarker from '../LocationMarker';
 import ParkingLotsMarker from '../ParkingLotsMarker';
 import {
@@ -12,7 +11,6 @@ import {
 import './Map.scss';
 
 const Map = () => {
-  const linePosition: LatLngExpression = [25.077227381690932, 121.5756255526039];
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -21,11 +19,9 @@ const Map = () => {
 
   const parkingLotsInfo = useAppSelector((state) => state.parkingLots.parkingLotsInfo);
 
-  console.log('In Map, parkingLotsInfo: ', parkingLotsInfo);
-
   return (
     <div id="map">
-      <MapContainer center={linePosition} zoom={15} scrollWheelZoom>
+      <MapContainer center={LINE_TAIWAN} zoom={15} scrollWheelZoom>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

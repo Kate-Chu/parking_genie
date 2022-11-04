@@ -16,7 +16,7 @@ export type ParkingLotsInfo = {
   area: string;
   name: string;
   type: string;
-  type2: string;
+  type2?: string;
   summary: string;
   address: string;
   tel: string;
@@ -28,14 +28,14 @@ export type ParkingLotsInfo = {
   totalmotor: number;
   totalbike: number;
   totalbus: number;
-  Pregnancy_First: string;
-  Handicap_First: string;
-  Taxi_OneHR_Free: string;
-  AED_Equipment: string;
-  CellSignal_Enhancement: string;
-  Accessibility_Elevator: string;
-  Phone_Charge: string;
-  Child_Pickup_Area: string;
+  Pregnancy_First?: string;
+  Handicap_First?: string;
+  Taxi_OneHR_Free?: string;
+  AED_Equipment?: string;
+  CellSignal_Enhancement?: string;
+  Accessibility_Elevator?: string;
+  Phone_Charge?: string;
+  Child_Pickup_Area?: string;
   FareInfo:
     | {
         WorkingDay?: FareInfo[] | undefined;

@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import type { ParkingLotsInfo, AvailableSpacesInfo } from '../types';
-import backupData from '../data/backupData.json';
-// import axios from 'axios';
 
 const INFO_URL = `https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_alldesc.json`;
 const AVAILABLE_URL = `https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_allavailable.json`;
@@ -38,12 +36,8 @@ export const fetchParkingLotsInfo = createAsyncThunk(
   'parkingLots/fetchParkingLotsInfo',
   async (_, thunkAPI) => {
     try {
-      // const response = await fetch<parkingLotsInfoData>(INFO_URL);
-      // console.log('In Slice: ', response.data);
-      // return response.data;
       const response = await fetch(INFO_URL);
       const data = await response.json();
-      // console.log('In asyncThunk data', data);
       return data as parkingLotsInfoData;
       // eslint-disable-next-line
     } catch (err: any) {
@@ -53,15 +47,17 @@ export const fetchParkingLotsInfo = createAsyncThunk(
   },
 );
 
-// fetch available spaces info
+// ACTION: fetch available spaces info
 export const fetchAvailableSpacesInfo = createAsyncThunk(
   'parkingLots/fetchAvailableSpacesInfo',
   async (_, thunkAPI) => {
     try {
       const response = await fetch(AVAILABLE_URL);
-      return (await response.json()) as availableSpacesData;
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err);
+      const data = await response.json();
+      return data as availableSpacesData;
+      // eslint-disable-next-line
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.message);
     }
   },
 );
@@ -75,12 +71,17 @@ const parkingLotsSlice = createSlice({
       .addCase(
         fetchParkingLotsInfo.fulfilled,
         (state, action: PayloadAction<parkingLotsInfoData>) => {
-          console.log('In extraReducers', action.payload.data.park);
           state.parkingLotsInfo = action.payload.data.park;
         },
       )
       .addCase(fetchParkingLotsInfo.rejected, (state, action) => {
-        state.parkingLotsInfo = backupData;
+        console.log(action.payload);
+      })
+      .addCase(fetchAvailableSpacesInfo.fulfilled, (state, action) => {
+        state.availableSpaces = action.payload.data.park;
+      })
+      .addCase(fetchAvailableSpacesInfo.rejected, (state, action) => {
+        console.log(action.payload);
       });
   },
 });
