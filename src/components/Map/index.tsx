@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { LINE_TAIWAN } from '../../data/default_data';
 import { useAppDispatch, useAppSelector } from '../../store';
-import LocationMarker from '../LocationMarker';
-import DestinationMarker from '../Destination';
+import LocationMarker from '../UserLocationMarker';
+import DestinationMarker from '../DestinationMarker';
 import ParkingLotsMarker from '../ParkingLotsMarker';
 import {
   fetchParkingLotsInfo,

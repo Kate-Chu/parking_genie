@@ -1,12 +1,19 @@
 import { useEffect } from 'react';
+import L from 'leaflet';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { userActions } from '../../store/userSlice';
 import { useAppDispatch, useAppSelector } from '../../store';
+import carIcon from '../../assets/car.png';
 
-const LocationMarker = () => {
+const UserLocationMarker = () => {
   const map = useMap();
   const dispatch = useAppDispatch();
   const currentLocation = useAppSelector((state) => state.user.userState.currentLocation);
+
+  const icon = L.icon({
+    iconUrl: carIcon,
+    iconSize: [40, 40],
+  });
 
   useEffect(() => {
     map.locate().on('locationfound', (e) => {
@@ -18,10 +25,10 @@ const LocationMarker = () => {
   }, [dispatch, map, currentLocation]);
 
   return currentLocation === undefined ? null : (
-    <Marker position={currentLocation}>
+    <Marker position={currentLocation} icon={icon}>
       <Popup>Your current location</Popup>
     </Marker>
   );
 };
 
-export default LocationMarker;
+export default UserLocationMarker;
