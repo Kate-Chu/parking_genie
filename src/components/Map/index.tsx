@@ -3,6 +3,7 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import { LINE_TAIWAN } from '../../data/default_data';
 import { useAppDispatch, useAppSelector } from '../../store';
 import LocationMarker from '../LocationMarker';
+import DestinationMarker from '../Destination';
 import ParkingLotsMarker from '../ParkingLotsMarker';
 import {
   fetchParkingLotsInfo,
@@ -27,6 +28,7 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <LocationMarker />
+        <DestinationMarker />
         {parkingLotsInfo.slice(0, 20).map((data) => {
           return <ParkingLotsMarker data={data} key={data.id} />;
         })}

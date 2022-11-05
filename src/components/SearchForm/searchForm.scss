@@ -1,0 +1,22 @@
+input#destination {
+  position: absolute;
+  z-index: 9999;
+  top: 1rem;
+  left: 4rem;
+  width: 25rem;
+  height: 0.6rem;
+  padding: 1.5rem;
+  border-radius: 0.4rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.submit-btn {
+  position: absolute;
+  z-index: 9999;
+  width: 1.2rem;
+  left: 26.5rem;
+  top: 1.9rem;
+}

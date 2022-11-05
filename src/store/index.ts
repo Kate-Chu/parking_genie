@@ -8,6 +8,13 @@ const store = configureStore({
     user: userReducer,
     parkingLots: parkingLotsReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        // Ignore the non-serializable action types
+        ignoredActions: ['user/setCurrentLocation'],
+      },
+    }),
 });
 
 type RootState = ReturnType<typeof store.getState>;

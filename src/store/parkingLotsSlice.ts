@@ -1,26 +1,14 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import type { ParkingLotsInfo, AvailableSpacesInfo } from '../types';
+import type {
+  ParkingLotsInfo,
+  AvailableSpacesInfo,
+  ParkingLotsInfoData,
+  AvailableSpacesData,
+} from '../types';
 
 const INFO_URL = `https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_alldesc.json`;
 const AVAILABLE_URL = `https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_allavailable.json`;
 
-// fetch JSON type
-type parkingLotsInfoData = {
-  data: {
-    UPDATETIME: string;
-    park: ParkingLotsInfo[];
-  };
-};
-
-// fetch JSON type
-type availableSpacesData = {
-  data: {
-    UPDATETIME: string;
-    park: AvailableSpacesInfo[];
-  };
-};
-
-// state type
 type ParkingLotsState = {
   parkingLotsInfo: ParkingLotsInfo[];
   availableSpaces: AvailableSpacesInfo[];
@@ -38,7 +26,7 @@ export const fetchParkingLotsInfo = createAsyncThunk(
     try {
       const response = await fetch(INFO_URL);
       const data = await response.json();
-      return data as parkingLotsInfoData;
+      return data as ParkingLotsInfoData;
       // eslint-disable-next-line
     } catch (err: any) {
       console.log(err.message);
@@ -54,7 +42,7 @@ export const fetchAvailableSpacesInfo = createAsyncThunk(
     try {
       const response = await fetch(AVAILABLE_URL);
       const data = await response.json();
-      return data as availableSpacesData;
+      return data as AvailableSpacesData;
       // eslint-disable-next-line
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message);
@@ -70,7 +58,7 @@ const parkingLotsSlice = createSlice({
     builder
       .addCase(
         fetchParkingLotsInfo.fulfilled,
-        (state, action: PayloadAction<parkingLotsInfoData>) => {
+        (state, action: PayloadAction<ParkingLotsInfoData>) => {
           state.parkingLotsInfo = action.payload.data.park;
         },
       )
