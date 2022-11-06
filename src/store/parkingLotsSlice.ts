@@ -29,7 +29,6 @@ export const fetchParkingLotsInfo = createAsyncThunk(
       return data as ParkingLotsInfoData;
       // eslint-disable-next-line
     } catch (err: any) {
-      console.log(err.message);
       return thunkAPI.rejectWithValue(err.message);
     }
   },
@@ -62,14 +61,8 @@ const parkingLotsSlice = createSlice({
           state.parkingLotsInfo = action.payload.data.park;
         },
       )
-      .addCase(fetchParkingLotsInfo.rejected, (state, action) => {
-        console.log(action.payload);
-      })
       .addCase(fetchAvailableSpacesInfo.fulfilled, (state, action) => {
         state.availableSpaces = action.payload.data.park;
-      })
-      .addCase(fetchAvailableSpacesInfo.rejected, (state, action) => {
-        console.log(action.payload);
       });
   },
 });

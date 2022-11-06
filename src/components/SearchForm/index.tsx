@@ -23,7 +23,6 @@ const SearchForm = () => {
       dispatch(fetchDestinationLatLng(data.destination));
     }
   };
-  // console.log(watch('destination'));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,5 +1,5 @@
 import proj4 from 'proj4';
-import { LatLngExpression } from 'leaflet';
+import { LatLngTuple } from 'leaflet';
 
 proj4.defs([
   [
@@ -16,7 +16,7 @@ proj4.defs([
   ],
 ]);
 
-const transformCoord = ([x, y]: [number, number]): LatLngExpression => {
+const transformCoord = ([x, y]: [number, number]): LatLngTuple => {
   const [lng, lat] = proj4('EPSG:3826', 'EPSG:4326', [x, y]);
   return [lat, lng];
 };

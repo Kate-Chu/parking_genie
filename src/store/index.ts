@@ -12,7 +12,10 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         // Ignore the non-serializable action types
-        ignoredActions: ['user/setCurrentLocation'],
+        ignoredActions: [
+          'user/setCurrentLocation',
+          'user/fetchCurrentLocation/fulfilled',
+        ],
       },
     }),
 });

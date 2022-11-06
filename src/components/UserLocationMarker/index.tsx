@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import L from 'leaflet';
 import { Marker, Popup, useMap } from 'react-leaflet';
-import { userActions } from '../../store/userSlice';
+import { fetchCurrentLocation } from '../../store/userSlice';
 import { useAppDispatch, useAppSelector } from '../../store';
 import carIcon from '../../assets/car.png';
 
 const UserLocationMarker = () => {
   const map = useMap();
   const dispatch = useAppDispatch();
-  const currentLocation = useAppSelector((state) => state.user.userState.currentLocation);
+  // const currentLocation = useAppSelector((state) => state.user.userState.currentLocation);
 
   const icon = L.icon({
     iconUrl: carIcon,
@@ -17,12 +17,17 @@ const UserLocationMarker = () => {
 
   useEffect(() => {
     map.locate().on('locationfound', (e) => {
-      dispatch(userActions.setCurrentLocation(e));
-      if (currentLocation) {
-        map.flyTo(currentLocation, map.getZoom());
-      }
+      dispatch(fetchCurrentLocation(e));
     });
-  }, [dispatch, map, currentLocation]);
+  }, [dispatch, map]);
+
+  const currentLocation = useAppSelector(
+    (state) => state.user.userState.currentLocation.latLng,
+  );
+
+  if (currentLocation) {
+    map.flyTo(currentLocation, map.getZoom());
+  }
 
   return currentLocation === undefined ? null : (
     <Marker position={currentLocation} icon={icon}>
