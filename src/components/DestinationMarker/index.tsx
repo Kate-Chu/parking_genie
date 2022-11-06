@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import L from 'leaflet';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { useAppSelector } from '../../store';
-import locationIcon from '../../assets/location-pin.png';
+import locationIcon from '../../assets/destination.png';
 
 const DestinationMarker = () => {
   const map = useMap();
@@ -17,7 +17,7 @@ const DestinationMarker = () => {
     if (destination.location) {
       map.flyTo(destination.location, map.getZoom());
     }
-  }, [destination.placeId, map]);
+  }, [destination.placeId, map, destination.location]);
 
   return destination.location === undefined ? null : (
     <Marker position={destination.location} icon={icon}>

@@ -12,7 +12,7 @@ const UserLocationMarker = () => {
 
   const icon = L.icon({
     iconUrl: carIcon,
-    iconSize: [40, 40],
+    iconSize: [45, 45],
   });
 
   useEffect(() => {
@@ -26,7 +26,9 @@ const UserLocationMarker = () => {
 
   return currentLocation === undefined ? null : (
     <Marker position={currentLocation} icon={icon}>
-      <Popup>Your current location</Popup>
+      <Popup>
+        <h1 className="tx-base font-bold">目前位置</h1>
+      </Popup>
     </Marker>
   );
 };

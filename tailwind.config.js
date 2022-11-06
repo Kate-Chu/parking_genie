@@ -17,7 +17,7 @@ module.exports = {
         DEFAULT: '#0062ff',
       },
       primary: {
-        DEFAULT: '#FF6600',
+        DEFAULT: '#06c755',
       },
       light: {
         DEFAULT: '#F5F8FA',
