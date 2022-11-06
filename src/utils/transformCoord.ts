@@ -16,8 +16,8 @@ proj4.defs([
   ],
 ]);
 
-const transformCoord = ([y, x]: [number, number]): LatLngExpression => {
-  const [lng, lat] = proj4('EPSG:3826', 'EPSG:4326', [y, x]);
+const transformCoord = ([x, y]: [number, number]): LatLngExpression => {
+  const [lng, lat] = proj4('EPSG:3826', 'EPSG:4326', [x, y]);
   return [lat, lng];
 };
 

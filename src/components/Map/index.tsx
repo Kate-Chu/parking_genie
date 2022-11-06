@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { LINE_TAIWAN } from '../../data/default_data';
-import { useAppDispatch, useAppSelector } from '../../store';
+import { useAppDispatch } from '../../store';
 import LocationMarker from '../UserLocationMarker';
 import DestinationMarker from '../DestinationMarker';
-import ParkingLotsMarker from '../ParkingLotsMarker';
 import {
   fetchParkingLotsInfo,
   // fetchAvailableSpacesInfo,
 } from '../../store/parkingLotsSlice';
 import './Map.scss';
+import ParkingLotsMarkerContainer from '../ParkingLotsMarkerContainer';
 
 const Map = () => {
   const dispatch = useAppDispatch();
@@ -18,20 +18,16 @@ const Map = () => {
     dispatch(fetchParkingLotsInfo());
   }, [dispatch]);
 
-  const parkingLotsInfo = useAppSelector((state) => state.parkingLots.parkingLotsInfo);
-
   return (
     <div id="map">
-      <MapContainer center={LINE_TAIWAN} zoom={15} scrollWheelZoom>
+      <MapContainer center={LINE_TAIWAN} zoom={17} scrollWheelZoom>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <LocationMarker />
         <DestinationMarker />
-        {parkingLotsInfo.slice(0, 20).map((data) => {
-          return <ParkingLotsMarker data={data} key={data.id} />;
-        })}
+        <ParkingLotsMarkerContainer />
       </MapContainer>
     </div>
   );

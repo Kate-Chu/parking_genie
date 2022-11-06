@@ -31,7 +31,9 @@ const SearchForm = () => {
         type="text"
         id="destination"
         placeholder="Hi, 現在想去哪裡？"
-        {...register('destination')}
+        {...register('destination', {
+          required: true,
+        })}
       />
       <button onClick={handleSubmit(onSubmit)} className="submit-btn">
         <SearchIcon fill="#9a9a9a" />
