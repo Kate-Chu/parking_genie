@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
-import Report from './pages/Report';
+import About from './pages/About';
 import store from './store';
 import './css/app.scss';
 
@@ -15,8 +15,8 @@ const router = createHashRouter([
     children: [],
   },
   {
-    path: '/report',
-    element: <Report />,
+    path: '/about',
+    element: <About />,
     children: [],
   },
 ]);

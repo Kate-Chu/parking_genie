@@ -10,15 +10,20 @@ const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        // Ignore the non-serializable action types
-        ignoredActions: [
-          'user/setCurrentLocation',
-          'user/fetchCurrentLocation/fulfilled',
-          'parkingLots/setMapBounds',
-        ],
-      },
+      serializableCheck: false,
     }),
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: {
+  //       // Ignore the non-serializable action types
+  //       ignoredActions: [
+  //         'user/setCurrentLocation',
+  //         'user/fetchCurrentLocation/fulfilled',
+  //         'parkingLots/setMapBounds',
+  //         'parkingLots/fetchAvailableSpacesInfo/fulfilled',
+  //       ],
+  //     },
+  //   }),
 });
 
 type RootState = ReturnType<typeof store.getState>;

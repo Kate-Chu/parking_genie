@@ -10,12 +10,7 @@ type Inputs = {
 
 const SearchForm = () => {
   const dispatch = useAppDispatch();
-  const {
-    register,
-    handleSubmit,
-    // watch,
-    // formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     if (!data.destination.trim()) {
       alert('請輸入目的地'); // ======== pending: replace alert with toast

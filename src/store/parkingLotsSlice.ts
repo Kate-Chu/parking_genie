@@ -81,7 +81,3 @@ const parkingLotsSlice = createSlice({
 
 export const parkingLotsActions = parkingLotsSlice.actions;
 export default parkingLotsSlice.reducer;
-
-// serializableStateInvariantMiddleware.ts:221
-// A non-serializable value was detected in the state, in the path: `parkingLots.mapBounds`. Value: LatLngBounds{_southWest: // LatLng, _northEast: LatLng}
-// Take a look at the reducer(s) handling this action type: parkingLots/fetchAvailableSpacesInfo/fulfilled.

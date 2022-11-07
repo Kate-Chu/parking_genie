@@ -36,7 +36,7 @@ const UserLocationMarker = () => {
   return currentLocation === undefined ? null : (
     <Marker position={currentLocation} icon={icon}>
       <Popup>
-        <h1 className="tx-lg font-bold">目前位置</h1>
+        <h1 className="text-base font-bold">目前位置</h1>
       </Popup>
     </Marker>
   );

@@ -95,9 +95,9 @@ const userSlice = createSlice({
             Math.floor(currentLatLan.lat) !== TAIPEI_LAT ||
             Math.floor(currentLatLan.lng) !== TAIPEI_LNG
           ) {
-            alert(
-              '很抱歉我們目前僅提供台北市停車場資料查詢，已將您導向 Line 台北總部，未來將儘速為您提供其他地區的服務',
-            );
+            // alert(
+            //   '很抱歉我們目前僅提供台北市停車場資料查詢，已將您導向 Line 台北總部，未來將儘速為您提供其他地區的服務',
+            // );
             state.userState.currentLocation.latLng = LINE_TAIWAN;
           } else {
             state.userState.currentLocation.latLng = [
