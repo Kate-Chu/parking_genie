@@ -1,14 +1,18 @@
 import { useEffect } from 'react';
 import L from 'leaflet';
 import { Marker, Popup, useMap } from 'react-leaflet';
-import { fetchCurrentLocation } from '../../store/userSlice';
 import { useAppDispatch, useAppSelector } from '../../store';
+import { fetchCurrentLocation } from '../../store/userSlice';
+import { parkingLotsActions } from '../../store/parkingLotsSlice';
 import carIcon from '../../assets/car.png';
 
 const UserLocationMarker = () => {
   const map = useMap();
   const dispatch = useAppDispatch();
-  // const currentLocation = useAppSelector((state) => state.user.userState.currentLocation);
+
+  useEffect(() => {
+    dispatch(parkingLotsActions.setMapBounds(map.getBounds()));
+  }, [dispatch, map]);
 
   const icon = L.icon({
     iconUrl: carIcon,
@@ -32,7 +36,7 @@ const UserLocationMarker = () => {
   return currentLocation === undefined ? null : (
     <Marker position={currentLocation} icon={icon}>
       <Popup>
-        <h1 className="tx-base font-bold">目前位置</h1>
+        <h1 className="tx-lg font-bold">目前位置</h1>
       </Popup>
     </Marker>
   );

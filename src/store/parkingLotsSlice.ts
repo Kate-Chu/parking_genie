@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { LatLngBounds } from 'leaflet';
 import type {
   ParkingLotsInfo,
   AvailableSpacesInfo,
@@ -12,11 +13,15 @@ const AVAILABLE_URL = `https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_al
 type ParkingLotsState = {
   parkingLotsInfo: ParkingLotsInfo[];
   availableSpaces: AvailableSpacesInfo[];
+  nearbyParkingLots: ParkingLotsInfo[];
+  mapBounds: LatLngBounds;
 };
 
 const initialParkingLotsState: ParkingLotsState = {
   parkingLotsInfo: [],
   availableSpaces: [],
+  nearbyParkingLots: [],
+  mapBounds: {} as LatLngBounds,
 };
 
 // ACTION: fetch parking lots info
@@ -52,7 +57,14 @@ export const fetchAvailableSpacesInfo = createAsyncThunk(
 const parkingLotsSlice = createSlice({
   name: 'parkingLots',
   initialState: initialParkingLotsState,
-  reducers: {},
+  reducers: {
+    setNearbyParkingLots: (state, action) => {
+      state.nearbyParkingLots = action.payload;
+    },
+    setMapBounds: (state, action) => {
+      state.mapBounds = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(
@@ -69,3 +81,7 @@ const parkingLotsSlice = createSlice({
 
 export const parkingLotsActions = parkingLotsSlice.actions;
 export default parkingLotsSlice.reducer;
+
+// serializableStateInvariantMiddleware.ts:221
+// A non-serializable value was detected in the state, in the path: `parkingLots.mapBounds`. Value: LatLngBounds{_southWest: // LatLng, _northEast: LatLng}
+// Take a look at the reducer(s) handling this action type: parkingLots/fetchAvailableSpacesInfo/fulfilled.

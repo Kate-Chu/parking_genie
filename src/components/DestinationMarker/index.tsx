@@ -21,7 +21,7 @@ const DestinationMarker = () => {
 
   return destination.location === undefined ? null : (
     <Marker position={destination.location} icon={icon}>
-      <Popup>{destination.searchInput}</Popup>
+      <Popup className="text-base font-bold">{destination.searchInput}</Popup>
     </Marker>
   );
 };

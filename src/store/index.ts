@@ -15,6 +15,7 @@ const store = configureStore({
         ignoredActions: [
           'user/setCurrentLocation',
           'user/fetchCurrentLocation/fulfilled',
+          'parkingLots/setMapBounds',
         ],
       },
     }),

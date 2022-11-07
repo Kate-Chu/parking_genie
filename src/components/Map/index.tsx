@@ -2,14 +2,12 @@ import { useEffect } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { LINE_TAIWAN } from '../../data/default_data';
 import { useAppDispatch } from '../../store';
-import LocationMarker from '../UserLocationMarker';
+import UserLocationMarker from '../UserLocationMarker';
 import DestinationMarker from '../DestinationMarker';
-import {
-  fetchParkingLotsInfo,
-  // fetchAvailableSpacesInfo,
-} from '../../store/parkingLotsSlice';
-import './Map.scss';
 import ParkingLotsMarkerContainer from '../ParkingLotsMarkerContainer';
+import LocationButton from '../LocationButton';
+import { fetchParkingLotsInfo } from '../../store/parkingLotsSlice';
+import './Map.scss';
 
 const Map = () => {
   const dispatch = useAppDispatch();
@@ -25,7 +23,8 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <LocationMarker />
+        <LocationButton />
+        <UserLocationMarker />
         <DestinationMarker />
         <ParkingLotsMarkerContainer />
       </MapContainer>

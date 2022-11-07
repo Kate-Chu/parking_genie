@@ -1,16 +1,22 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
+import Report from './pages/Report';
 import store from './store';
 import './css/app.scss';
 
-const router = createBrowserRouter([
+// react router v6.4.3
+const router = createHashRouter([
   {
     path: '/',
     element: <App />,
+    children: [],
+  },
+  {
+    path: '/report',
+    element: <Report />,
     children: [],
   },
 ]);
@@ -19,7 +25,6 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <App /> */}
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,

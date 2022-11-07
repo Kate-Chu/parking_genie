@@ -5,7 +5,7 @@ import { ParkingLotsInfo } from '../../types';
 import { useAppSelector } from '../../store';
 import navigationUrlGenerator from '../../utils/navigationUrlGenerator';
 import transformCoord from '../../utils/transformCoord';
-import locationBlackIcon from '../../assets/location-black.png';
+import locationPurpleIcon from '../../assets/location-purple.png';
 import locationBlueIcon from '../../assets/location-blue.png';
 import locationYellowIcon from '../../assets/location-yellow.png';
 import locationRedIcon from '../../assets/location-red.png';
@@ -39,7 +39,7 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
   );
 
   const updatedSpaces = availableSpacesInfo.find((availData) => availData.id === data.id);
-  const availCarSpaces = updatedSpaces?.availablecar ? updatedSpaces?.availablecar : '？';
+  const availCarSpaces = updatedSpaces?.availablecar ? updatedSpaces?.availablecar : '?';
   let usedIcon;
 
   if (availCarSpaces < 10) {
@@ -49,7 +49,7 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
   } else if (availCarSpaces >= 30) {
     usedIcon = locationBlueIcon;
   } else {
-    usedIcon = locationBlackIcon;
+    usedIcon = locationPurpleIcon;
   }
 
   const icon = L.icon({
@@ -59,7 +59,7 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
 
   return (
     <Marker position={position} icon={icon}>
-      <Popup>
+      <Popup className="max-w-[200px]">
         <h1 className="text-base font-bold">{data.name}</h1>
         <section className="my-2 flex justify-between gap-1">
           <h6 className="text-sm">總車位 {data.totalcar}</h6>
