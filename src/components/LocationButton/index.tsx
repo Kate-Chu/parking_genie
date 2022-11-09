@@ -16,6 +16,7 @@ const LocationButton = () => {
   return (
     <button
       className="absolute top-20 left-3 z-[9999] flex h-8 w-8 items-center justify-center rounded-md bg-white"
+      title="My location"
       onClick={userLocationHandler}
     >
       <LocationCrossIcon fill="#003060" className="h-5 w-5" />

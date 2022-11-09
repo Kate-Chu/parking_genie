@@ -1,0 +1,36 @@
+.about-page {
+  background-color: #eee0cf;
+
+  &__intro {
+    position: relative;
+    z-index: 20;
+    width: 80%;
+  }
+}
+
+.decoration {
+  position: relative;
+}
+
+.circle {
+  position: fixed;
+  border-radius: 50%;
+
+  &.circle-a {
+    /*   left-top */
+    width: 40rem;
+    height: 40rem;
+    left: -13rem;
+    top: -22rem;
+    background-color: #ff9b2f;
+  }
+
+  &.circle-b {
+    /*   right-bottom */
+    width: 50rem;
+    height: 50rem;
+    right: -22rem;
+    bottom: -28rem;
+    background-color: #ff9b2f;
+  }
+}
