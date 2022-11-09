@@ -2,8 +2,10 @@
   "name": "parking-genie",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kate-chu.github.io/parking_genie",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
+    "gh-pages": "^4.0.0",
     "leaflet": "^1.9.2",
     "leaflet-drift-marker": "^2.0.0",
     "proj4": "^2.7.5",
@@ -61,7 +63,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

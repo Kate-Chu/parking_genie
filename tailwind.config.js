@@ -21,6 +21,11 @@ module.exports = {
       },
       light: {
         DEFAULT: '#F5F8FA',
+        180: '#d8d8d8',
+        120: '#eaeaea',
+        100: '#ebebeb',
+        80: '#ededed',
+        60: '#fdfdfd',
       },
       red: {
         DEFAULT: '#c0392b',

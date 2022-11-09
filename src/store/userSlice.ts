@@ -1,12 +1,15 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { LatLngExpression, LatLngTuple, LocationEvent } from 'leaflet';
-import { TAIPEI_LNG, TAIPEI_LAT, LINE_TAIWAN } from '../data/default_data';
+import {
+  TAIPEI_LNG,
+  TAIPEI_LAT,
+  LINE_TAIWAN,
+  GEOCODING_ADDRESS,
+  GEOCODING_LAT_LNG,
+} from '../data/data';
 import type { GeocodingData } from '../types';
 
 const GEOCODING_API = process.env.REACT_APP_GEOCODING_API_KEY;
-
-const GEOCODING_ADDRESS = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
-const GEOCODING_LAT_LNG = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
 
 type userState = {
   userState: {

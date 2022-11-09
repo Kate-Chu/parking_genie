@@ -9,7 +9,7 @@ import locationPurpleIcon from '../../assets/location-purple.png';
 import locationBlueIcon from '../../assets/location-blue.png';
 import locationYellowIcon from '../../assets/location-yellow.png';
 import locationRedIcon from '../../assets/location-red.png';
-import { LINE_TAIWAN } from '../../data/default_data';
+import { LINE_TAIWAN } from '../../data/data';
 
 type ParkingLotsMarkerProps = {
   data: ParkingLotsInfo;
