@@ -1,12 +1,14 @@
-import Map from './Map';
-import SearchForm from './SearchForm';
+import { Routes, Route } from 'react-router-dom';
+import Homepage from '../pages/Homepage';
+import About from '../pages/About';
 
 const App = () => {
   return (
-    <>
-      <SearchForm />
-      <Map />
-    </>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/*" element={<Homepage />} />
+    </Routes>
   );
 };
 
