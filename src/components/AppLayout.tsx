@@ -1,10 +1,13 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+import Map from './Map';
 
 const AppLayout = () => {
+  const location = useLocation();
+
   return (
     <>
       <span className="hidden">Test</span>
-      <Outlet />
+      {location.pathname === '/' ? <Map /> : <Outlet />}
     </>
   );
 };
