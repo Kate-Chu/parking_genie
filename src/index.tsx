@@ -1,23 +1,22 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import App from './components/App';
 import About from './pages/About';
 import store from './store';
+import AppLayout from './components/AppLayout';
 import './css/app.scss';
 
 // react router v6.4.3
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
-    children: [],
-  },
-  {
-    path: '/about',
-    element: <About />,
-    children: [],
+    element: <AppLayout />,
+    children: [
+      { path: 'map', element: <App /> },
+      { path: 'about', element: <About /> },
+    ],
   },
 ]);
 

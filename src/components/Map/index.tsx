@@ -17,7 +17,7 @@ const Map = () => {
   }, [dispatch]);
 
   return (
-    <div id="map">
+    <div id="map" data-testid="map">
       <MapContainer center={LINE_TAIWAN} zoom={17} scrollWheelZoom>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
