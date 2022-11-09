@@ -22,7 +22,7 @@ const About = () => {
           <br />
           停車的大小事，都交給我們。：）
         </p>
-        <Link to="/" className="mt-8 flex items-end">
+        <Link to="/" className="mt-8 flex w-fit items-end">
           <img
             src={mapLogo}
             alt="map logo"
