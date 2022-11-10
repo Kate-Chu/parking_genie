@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { toast, ToastContainer } from 'react-toastify';
 import { ReactComponent as SearchIcon } from '../../assets/magnifying-glass.svg';
 import { useAppDispatch } from '../../store';
 import { fetchDestinationLatLng } from '../../store/userSlice';
@@ -11,28 +12,27 @@ type Inputs = {
 const SearchForm = () => {
   const dispatch = useAppDispatch();
   const { register, handleSubmit } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    if (!data.destination.trim()) {
-      alert('請輸入目的地'); // ======== pending: replace alert with toast
-    } else {
-      dispatch(fetchDestinationLatLng(data.destination));
-    }
+    if (!data.destination.trim()) return toast.error('請輸入目的地');
+    return dispatch(fetchDestinationLatLng(data.destination));
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        type="text"
-        id="destination"
-        placeholder="Hi, 現在想去哪裡？"
-        {...register('destination', {
-          required: true,
-        })}
-      />
-      <button onClick={handleSubmit(onSubmit)} className="submit-btn">
-        <SearchIcon fill="#9a9a9a" />
-      </button>
-    </form>
+    <>
+      <ToastContainer />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          type="text"
+          id="destination"
+          placeholder="Hi, 現在想去哪裡？"
+          {...register('destination')}
+        />
+        <button onClick={handleSubmit(onSubmit)} className="submit-btn">
+          <SearchIcon fill="#9a9a9a" />
+        </button>
+      </form>
+    </>
   );
 };
 
