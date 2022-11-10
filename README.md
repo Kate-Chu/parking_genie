@@ -39,7 +39,7 @@ npm install
 npm start
 ```
 
-6. 若是跑出以下內容，代表程式已經成功運行了，可以在瀏覽器輸入顯示網址體驗網站。
+6. 若是跑出以下內容，代表程式已經運行成功了，可以在瀏覽器輸入顯示網址體驗網站。
 
 ```
 You can now view parking-genie in the browser.
