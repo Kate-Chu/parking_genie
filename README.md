@@ -20,7 +20,7 @@
 git clone https://github.com/Kate-Chu/parking_genie.git
 ```
 
-3. 前往[Google 地圖平台](https://developers.google.com/maps)取得 Geocoding api，並打開 .env 檔案填寫在 `REACT_APP_GEOCODING_API=` 之後。
+3. 前往 [Google 地圖平台](https://developers.google.com/maps) 取得 Geocoding api，並打開 .env 檔案填寫在 `REACT_APP_GEOCODING_API=` 之後。
 
 ```
 REACT_APP_GEOCODING_API=[your geocoding api]
