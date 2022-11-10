@@ -1,5 +1,5 @@
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, PreloadedState, combineReducers } from '@reduxjs/toolkit';
 import userReducer from './userSlice';
 import parkingLotsReducer from './parkingLotsSlice';
 
@@ -14,8 +14,21 @@ const store = configureStore({
     }),
 });
 
-type RootState = ReturnType<typeof store.getState>;
-type AppDispatch = typeof store.dispatch;
+const rootReducer = combineReducers({
+  user: userReducer,
+  parkingLots: parkingLotsReducer,
+});
+
+export function setupStore(preloadedState?: PreloadedState<RootState>) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  });
+}
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppStore = ReturnType<typeof setupStore>;
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

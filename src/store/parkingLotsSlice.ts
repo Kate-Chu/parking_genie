@@ -17,7 +17,7 @@ type ParkingLotsState = {
   mapBounds: LatLngBounds;
 };
 
-const initialParkingLotsState: ParkingLotsState = {
+export const initialParkingLotsState: ParkingLotsState = {
   parkingLotsInfo: [],
   availableSpaces: [],
   nearbyParkingLots: [],

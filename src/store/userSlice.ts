@@ -27,7 +27,7 @@ type userState = {
   };
 };
 
-const initialUserState: userState = {
+export const initialUserState: userState = {
   userState: {
     currentLocation: { latLng: undefined, placeId: null, isRealLocation: undefined },
     destination: {
