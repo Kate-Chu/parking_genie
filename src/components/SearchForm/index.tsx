@@ -21,7 +21,7 @@ const SearchForm = () => {
   return (
     <>
       <ToastContainer />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} data-testid="search-form">
         <input
           type="text"
           id="destination"

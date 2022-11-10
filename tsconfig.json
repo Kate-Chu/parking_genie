@@ -9,7 +9,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    // "module": "esnext",
     "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -20,11 +19,3 @@
   "include": ["src", "types"],
   "exclude": ["./test", "node_modules"]
 }
-// {
-//   "target": "es6",
-//   "module": "commonjs",
-//   "outDir": "dist",
-//   "strict": true,
-//   "sourceMap": true,
-//   "esModuleInterop": true
-// }

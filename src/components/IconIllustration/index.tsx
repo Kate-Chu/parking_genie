@@ -13,8 +13,9 @@ const iconList = [
 const IconIllustration = () => {
   return (
     <ul
-      className="absolute bottom-10 left-10 z-[9999] flex w-fit
+      className="absolute bottom-10 left-10 z-[500] flex w-fit
      flex-col gap-4 rounded-lg bg-white p-4 shadow-md"
+      data-testid="icon-illustration"
     >
       {iconList.map((item) => {
         return (
