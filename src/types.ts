@@ -44,6 +44,7 @@ export type ParkingLotsInfo = {
   EntranceCoord: {
     EntrancecoordInfo: EntrancecoordInfo[];
   };
+  distanceFromOrigin?: number;
 };
 
 // Fetched Parking Lots Info JSON Type

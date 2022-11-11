@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1668096308477" clover="3.2.0">
-  <project timestamp="1668096308477" name="All files">
-    <metrics statements="97" coveredstatements="56" conditionals="7" coveredconditionals="3" methods="22" coveredmethods="7" elements="126" coveredelements="66" complexity="0" loc="97" ncloc="97" packages="5" files="8" classes="8"/>
+<coverage generated="1668143847395" clover="3.2.0">
+  <project timestamp="1668143847395" name="All files">
+    <metrics statements="100" coveredstatements="57" conditionals="7" coveredconditionals="3" methods="23" coveredmethods="7" elements="130" coveredelements="67" complexity="0" loc="100" ncloc="100" packages="5" files="8" classes="8"/>
     <package name="mocks">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="fileMock.js" path="/Users/kate/Desktop/Project/Kate/parking-genie/mocks/fileMock.js">
@@ -25,20 +25,21 @@
       </file>
     </package>
     <package name="src.pages.About">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="/Users/kate/Desktop/Project/Kate/parking-genie/src/pages/About/index.tsx">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.store">
-      <metrics statements="73" coveredstatements="32" conditionals="4" coveredconditionals="0" methods="18" coveredmethods="4"/>
+      <metrics statements="75" coveredstatements="32" conditionals="4" coveredconditionals="0" methods="19" coveredmethods="4"/>
       <file name="index.ts" path="/Users/kate/Desktop/Project/Kate/parking-genie/src/store/index.ts">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -84,42 +85,44 @@
         <line num="83" count="1" type="stmt"/>
       </file>
       <file name="userSlice.ts" path="/Users/kate/Desktop/Project/Kate/parking-genie/src/store/userSlice.ts">
-        <metrics statements="35" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="1"/>
+        <metrics statements="37" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
         <line num="66" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="86" count="0" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="105" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="109" count="0" type="stmt"/>
-        <line num="116" count="1" type="stmt"/>
-        <line num="117" count="1" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.utils">

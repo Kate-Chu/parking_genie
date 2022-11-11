@@ -1,3 +1,5 @@
+import { MapContainer } from 'react-leaflet';
+import { LINE_TAIWAN } from '../../data/data';
 import Map from '../../components/Map';
 import SearchForm from '../../components/SearchForm';
 import Sidebar from '../../layout/Sidebar';
@@ -17,14 +19,14 @@ const Homepage = () => {
   const showSidebar = useAppSelector((state) => state.user.userState.showSidebar);
 
   return (
-    <>
+    <MapContainer center={LINE_TAIWAN} zoom={17} scrollWheelZoom>
       <SearchForm />
       <ToggleButton atClick={toggleSidebarHandler} />
       {showSidebar && <Sidebar />}
       <Map />
       <IconIllustration />
       <AboutButton />
-    </>
+    </MapContainer>
   );
 };
 export default Homepage;

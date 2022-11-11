@@ -8,7 +8,7 @@ import navigationUrlGenerator from '../../utils/navigationUrlGenerator';
 import type { ParkingLotsInfo as ParkingLotsInfoType } from '../../types';
 
 const LinkItem: React.FC<ParkingLotsInfoType> = (props) => {
-  const { name, id, address, tw97x, tw97y } = props;
+  const { name, id, address, tw97x, tw97y, distanceFromOrigin } = props;
   const availableSpaces = useAppSelector((state) => state.parkingLots.availableSpaces);
   const availableSpacesCount = availableSpaces.find((item) => item.id === id);
   const position: LatLngTuple = transformCoord([Number(tw97x), Number(tw97y)]);
@@ -33,12 +33,23 @@ const LinkItem: React.FC<ParkingLotsInfoType> = (props) => {
       <section className="my-8 w-4/5 pr-2">
         <h1 className="text-lg font-bold">{name}</h1>
         <p className="text-sm">{address}</p>
-        <p className="text-sm">
-          剩餘車位
-          <span className="ml-4 text-lg font-semibold text-blue">
-            {availableSpacesCount?.availablecar || '?'}
-          </span>
-        </p>
+        <section className="flex justify-between">
+          <p className="text-sm">
+            剩餘車位
+            <span className="ml-4 text-lg font-semibold text-blue">
+              {availableSpacesCount?.availablecar || '?'}
+            </span>
+          </p>
+          <p className="text-sm">
+            距離
+            <span className="ml-4   ">
+              <span className="mr-4 text-lg font-semibold text-green">
+                {(distanceFromOrigin! / 1000).toFixed(2) || '?'}
+              </span>
+              公里
+            </span>
+          </p>
+        </section>
       </section>
       <button className="h-12 w-12  rounded-full border-[1px] border-gray-100">
         <a
