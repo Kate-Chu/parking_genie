@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useMap } from 'react-leaflet';
 import { useAppSelector } from '../../store';
 import { ReactComponent as LocationCrossIcon } from '../../assets/location-crosshairs.svg';
@@ -24,4 +25,4 @@ const LocationButton = () => {
   );
 };
 
-export default LocationButton;
+export default memo(LocationButton);

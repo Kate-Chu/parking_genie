@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { LINE_TAIWAN } from '../../data/data';
 import { useAppDispatch } from '../../store';
@@ -32,4 +32,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default memo(Map);

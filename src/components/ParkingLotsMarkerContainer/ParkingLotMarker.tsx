@@ -80,4 +80,4 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
   );
 };
 
-export default ParkingLotsMarker;
+export default React.memo(ParkingLotsMarker);

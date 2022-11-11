@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import purpleIcon from '../../assets/location-purple.png';
 import redIcon from '../../assets/location-red.png';
 import yellowIcon from '../../assets/location-yellow.png';
@@ -19,7 +20,7 @@ const IconIllustration = () => {
     >
       {iconList.map((item) => {
         return (
-          <li className="flex items-center">
+          <li className="flex items-center" key={item.id}>
             <span className="mr-2">
               <img src={item.icon} alt="space icon" className="h-6" />
             </span>
@@ -31,4 +32,4 @@ const IconIllustration = () => {
   );
 };
 
-export default IconIllustration;
+export default memo(IconIllustration);

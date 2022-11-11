@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import companyLogo from '../../assets/company-logo.jpg';
 
@@ -20,4 +21,4 @@ const AboutButton = () => {
   );
 };
 
-export default AboutButton;
+export default memo(AboutButton);

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import L from 'leaflet';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { toast, ToastContainer } from 'react-toastify';
@@ -54,4 +54,4 @@ const UserLocationMarker = () => {
   );
 };
 
-export default UserLocationMarker;
+export default memo(UserLocationMarker);

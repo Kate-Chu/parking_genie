@@ -13,11 +13,15 @@ module.exports = {
       current: 'currentColor',
       white: '#ffffff',
       black: '#000000',
-      blue: {
-        DEFAULT: '#0062ff',
+      primary: '#06c755',
+      green: {
+        DEFAULT: '#06bcc1',
       },
-      primary: {
-        DEFAULT: '#06c755',
+      blue: {
+        DEFAULT: '#4171ff',
+        dark: '#162848',
+        gray: '#83879b',
+        black: '#00090B',
       },
       light: {
         DEFAULT: '#F5F8FA',

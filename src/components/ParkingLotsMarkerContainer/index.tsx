@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import { useAppSelector, useAppDispatch } from '../../store';
 import {
@@ -41,4 +41,4 @@ const ParkingLotsMarkerContainer = () => {
   );
 };
 
-export default ParkingLotsMarkerContainer;
+export default memo(ParkingLotsMarkerContainer);

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import companyLogo from '../../assets/company-logo.jpg';
 import mapLogo from '../../assets/map.png';
@@ -40,4 +41,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default memo(About);

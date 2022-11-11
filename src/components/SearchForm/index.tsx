@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { ReactComponent as SearchIcon } from '../../assets/magnifying-glass.svg';
@@ -21,7 +22,7 @@ const SearchForm = () => {
   return (
     <>
       <ToastContainer />
-      <form onSubmit={handleSubmit(onSubmit)} data-testid="search-form">
+      <form onSubmit={handleSubmit(onSubmit)} data-testid="search-form" id="search-form">
         <input
           type="text"
           id="destination"
@@ -36,4 +37,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default memo(SearchForm);
