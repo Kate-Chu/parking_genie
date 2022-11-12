@@ -7,17 +7,19 @@ import './about.scss';
 const About = () => {
   return (
     <main className="about-page flex h-screen w-screen items-center overflow-hidden text-gray-120">
-      <section className="about-page__intro ml-32 w-4/6 tracking-wider">
-        <h1 className="my-8 flex items-center text-5xl font-black">
-          Your Parking Genie
-          <span>
+      <section className="about-page__intro w-4/6 tracking-wider">
+        <section className="about-page__header flex items-center">
+          <h1 className="about-page__text my-8 flex items-center text-5xl font-black">
+            Parking Genie
+          </h1>
+          <span className="about-page__logo">
             <img
               src={companyLogo}
               alt="company logo"
               className="ml-8 inline-block h-16 w-16 rounded-full"
             />
           </span>
-        </h1>
+        </section>
         <p className="text-xl font-semibold">
           停車小精靈為您找到距離最近的停車場，讓您開車出門不再煩惱找不到停車位。
           <br />

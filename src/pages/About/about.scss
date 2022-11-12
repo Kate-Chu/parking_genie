@@ -1,10 +1,51 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
 .about-page {
   background-color: #eee0cf;
 
   &__intro {
     position: relative;
     z-index: 20;
+    margin-left: 8rem;
     width: 80%;
+
+    @include pad {
+      margin: auto;
+    }
+
+    @include mobile {
+      margin: auto;
+    }
+  }
+}
+
+.about-page__header {
+  @include pad {
+    .about-page__logo {
+      margin-left: 2px;
+    }
+  }
+
+  .about-page__text {
+    @include pad {
+      font-size: 1.8rem;
+      width: 100%;
+    }
+  }
+
+  .about-page__logo {
+    @include mobile {
+      display: none;
+    }
   }
 }
 

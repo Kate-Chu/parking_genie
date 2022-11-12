@@ -1,7 +1,7 @@
 import { memo, useEffect } from 'react';
 import L from 'leaflet';
 import { Marker, Popup, useMap } from 'react-leaflet';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { fetchCurrentLocation } from '../../store/userSlice';
 import { parkingLotsActions } from '../../store/parkingLotsSlice';
@@ -43,14 +43,11 @@ const UserLocationMarker = () => {
   }
 
   return currentLocation === undefined ? null : (
-    <>
-      <Marker position={currentLocation} icon={icon}>
-        <Popup>
-          <h1 className="text-base font-bold">目前位置</h1>
-        </Popup>
-      </Marker>
-      <ToastContainer />
-    </>
+    <Marker position={currentLocation} icon={icon}>
+      <Popup>
+        <h1 className="text-base font-bold">目前位置</h1>
+      </Popup>
+    </Marker>
   );
 };
 

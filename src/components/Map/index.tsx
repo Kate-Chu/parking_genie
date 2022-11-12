@@ -1,7 +1,6 @@
 import { memo, useEffect } from 'react';
-// import { MapContainer, TileLayer } from 'react-leaflet';
 import { TileLayer } from 'react-leaflet';
-// import { LINE_TAIWAN } from '../../data/data';
+import { ToastContainer } from 'react-toastify';
 import { useAppDispatch } from '../../store';
 import UserLocationMarker from '../UserLocationMarker';
 import DestinationMarker from '../DestinationMarker';
@@ -24,6 +23,7 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <ToastContainer />
       <LocationButton />
       <UserLocationMarker />
       <DestinationMarker />
