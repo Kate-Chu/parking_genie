@@ -1,4 +1,4 @@
-![image](https://github.com/Kate-Chu/parking_genie/blob/main/src/assets/demo-min.gif)
+![image](https://github.com/Kate-Chu/parking_genie/blob/main/src/assets/demo-10ftp.gif)
 
 ## 介紹
 
