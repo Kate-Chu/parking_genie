@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { renderWithProviders } from '../utils/test-utils';
+import { renderWithProviders } from '../utils/testUtils';
 // import App from '../App';
 import About from '../pages/About';
 
@@ -10,6 +10,6 @@ test('renders learn react link', () => {
       <About />
     </Router>,
   );
-  const linkElement = screen.getByText(/Your Parking Genie/i);
+  const linkElement = screen.getByText(/Parking Genie/i);
   expect(linkElement).toBeInTheDocument();
 });

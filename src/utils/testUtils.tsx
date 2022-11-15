@@ -22,11 +22,10 @@ export function renderWithProviders(
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) {
-  // eslint-disable-next-line react/function-component-definition
-  function Wrapper({
+  const Wrapper = ({
     children,
-  }: PropsWithChildren<Record<string, unknown>>): JSX.Element {
+  }: PropsWithChildren<Record<string, unknown>>): JSX.Element => {
     return <Provider store={store}>{children}</Provider>;
-  }
+  };
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
