@@ -10,6 +10,7 @@ import locationBlueIcon from '../../assets/location-blue.png';
 import locationYellowIcon from '../../assets/location-yellow.png';
 import locationRedIcon from '../../assets/location-red.png';
 import { LINE_TAIWAN } from '../../data/data';
+import './ParkingLotMarker.scss';
 
 type ParkingLotsMarkerProps = {
   data: ParkingLotsInfo;
@@ -52,13 +53,19 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
     usedIcon = locationPurpleIcon;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const icon = L.icon({
     iconUrl: usedIcon,
     iconSize: [30, 30],
   });
 
+  const myIcon = L.divIcon({
+    className: 'div-icon-container',
+    html: `<span class="div-icon">${availCarSpaces}</span>`,
+  });
+
   return (
-    <Marker position={position} icon={icon}>
+    <Marker position={position} icon={myIcon}>
       <Popup className="max-w-[200px]">
         <h1 className="text-base font-bold">{data.name}</h1>
         <section className="my-2 flex justify-between gap-1">
