@@ -1,6 +1,6 @@
 input#destination {
   position: absolute;
-  z-index: 9999;
+  z-index: 1000;
   top: 1rem;
   left: 4rem;
   width: 18rem;
@@ -16,7 +16,7 @@ input#destination {
 
 .submit-btn {
   position: absolute;
-  z-index: 9999;
+  z-index: 1000;
   width: 1.2rem;
   left: 20rem;
   top: 1.9rem;

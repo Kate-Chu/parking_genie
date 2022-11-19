@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "types"],
+  "include": ["src", "types", "src/components/ParkingLotsMarkerContainer/.d.ts"],
   "exclude": ["./test", "node_modules"]
 }

@@ -5,10 +5,6 @@ import { ParkingLotsInfo } from '../../types';
 import { useAppSelector } from '../../store';
 import navigationUrlGenerator from '../../utils/navigationUrlGenerator';
 import transformCoord from '../../utils/transformCoord';
-import locationPurpleIcon from '../../assets/location-purple.png';
-import locationBlueIcon from '../../assets/location-blue.png';
-import locationYellowIcon from '../../assets/location-yellow.png';
-import locationRedIcon from '../../assets/location-red.png';
 import { LINE_TAIWAN } from '../../data/data';
 import './ParkingLotMarker.scss';
 
@@ -40,31 +36,24 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
   );
 
   const updatedSpaces = availableSpacesInfo.find((availData) => availData.id === data.id);
-  const availCarSpaces = updatedSpaces?.availablecar ? updatedSpaces?.availablecar : '?';
-  let usedIcon;
+  const availCarSpaces = updatedSpaces?.availablecar || '?';
+
+  let iconColor;
 
   if (availCarSpaces < 10) {
-    usedIcon = locationRedIcon;
+    iconColor = 'bg-red border-red';
   } else if (availCarSpaces >= 10 && availCarSpaces < 30) {
-    usedIcon = locationYellowIcon;
-  } else if (availCarSpaces >= 30) {
-    usedIcon = locationBlueIcon;
+    iconColor = 'bg-yellow border-yellow';
   } else {
-    usedIcon = locationPurpleIcon;
+    iconColor = 'bg-primary border-primary';
   }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const icon = L.icon({
-    iconUrl: usedIcon,
-    iconSize: [30, 30],
-  });
 
   const myIcon = L.divIcon({
     className: 'div-icon-container',
-    html: `<span class="div-icon">${availCarSpaces}</span>`,
+    html: `<span class="${`div-icon ${iconColor}`}"><span class="div-icon__text ">${availCarSpaces}</span></span>`,
   });
 
-  return (
+  return updatedSpaces?.availablecar ? (
     <Marker position={position} icon={myIcon}>
       <Popup className="max-w-[200px]">
         <h1 className="text-base font-bold">{data.name}</h1>
@@ -84,7 +73,7 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
         </button>
       </Popup>
     </Marker>
-  );
+  ) : null;
 };
 
 export default React.memo(ParkingLotsMarker);

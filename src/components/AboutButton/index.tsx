@@ -11,7 +11,7 @@ const AboutButton = () => {
 
   return (
     <button
-      className="absolute bottom-10 right-10 z-[9999] h-16 w-16 rounded-full "
+      className="absolute bottom-10 right-10 z-[1000] h-16 w-16 rounded-full "
       title="About us"
       onClick={clickHandler}
       data-testid="about-button"
