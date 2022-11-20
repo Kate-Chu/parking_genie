@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --toastify-color-info: #06c755;
+}
+
 body {
   margin: 0;
   padding: 0;
+}
+
+.leaflet-container {
+  width: 100vw;
+  height: 100vh;
 }
