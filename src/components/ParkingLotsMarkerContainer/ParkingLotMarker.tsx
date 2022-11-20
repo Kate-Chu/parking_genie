@@ -10,10 +10,11 @@ import './ParkingLotMarker.scss';
 
 type ParkingLotsMarkerProps = {
   data: ParkingLotsInfo;
+  isHovered: boolean;
 };
 
 const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
-  const { data } = props;
+  const { data, isHovered } = props;
   const position: LatLngTuple = transformCoord([Number(data.tw97x), Number(data.tw97y)]);
 
   const userLocation = useAppSelector(
@@ -52,11 +53,13 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
 
   const icon = L.divIcon({
     className: 'div-icon-container',
-    html: `<span class="${`div-icon ${iconColor}`}"><span class="div-icon__text ">${availCarSpaces}</span></span>`,
+    html: `<span class="${`div-icon ${iconColor} ${
+      isHovered ? 'hovered' : null
+    }`}"><span class="div-icon__text ">${availCarSpaces}</span></span>`,
   });
 
   return (
-    <Marker position={position} icon={icon}>
+    <Marker position={position} icon={icon} riseOnHover>
       <Popup className="max-w-[250px]">
         <h1 className="text-base font-bold">{data.name}</h1>
         <section className="my-2 flex flex-col justify-between gap-1">

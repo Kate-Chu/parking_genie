@@ -4,7 +4,12 @@ import { useAppSelector, useAppDispatch } from '../../store';
 import { parkingLotsActions } from '../../store/parkingLotsSlice';
 import ParkingLotsMarker from './ParkingLotMarker';
 
-const ParkingLotsMarkerContainer = () => {
+type ParkingLotsMarkerContainerProps = {
+  hoverMarkerId: string | null;
+};
+
+const ParkingLotsMarkerContainer: React.FC<ParkingLotsMarkerContainerProps> = (props) => {
+  const { hoverMarkerId } = props;
   const map = useMap();
   const dispatch = useAppDispatch();
 
@@ -19,7 +24,13 @@ const ParkingLotsMarkerContainer = () => {
   return (
     <>
       {nearbyParkingLots.map((data) => {
-        return <ParkingLotsMarker data={data} key={data.id} />;
+        return (
+          <ParkingLotsMarker
+            data={data}
+            key={data.id}
+            isHovered={hoverMarkerId === data.id}
+          />
+        );
       })}
     </>
   );

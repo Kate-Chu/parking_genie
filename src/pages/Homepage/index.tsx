@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { ToastContainer } from 'react-toastify';
 import Sidebar from '../../layout/Sidebar';
@@ -21,6 +21,7 @@ import {
 import transformCoord from '../../utils/transformCoord';
 
 const Homepage = () => {
+  const [hoverMarkerId, setHoverMarkerId] = useState<string | null>(null);
   const dispatch = useAppDispatch();
   const showSidebar = useAppSelector((state) => state.user.userState.showSidebar);
   const mapBounds = useAppSelector((state) => state.parkingLots.mapBounds);
@@ -51,6 +52,10 @@ const Homepage = () => {
     dispatch(parkingLotsActions.toggleHideUnknownSpacesLots());
   };
 
+  const mouseEnterHandler = (id: string) => {
+    setHoverMarkerId(id);
+  };
+
   return (
     <MapContainer center={LINE_TAIWAN} zoom={17} scrollWheelZoom doubleClickZoom={false}>
       <SearchForm />
@@ -60,7 +65,7 @@ const Homepage = () => {
       />
 
       <ToggleButton atClick={toggleSidebarHandler} showSidebar={showSidebar} />
-      {showSidebar && <Sidebar />}
+      {showSidebar && <Sidebar mouseEnterHandler={mouseEnterHandler} />}
       <div id="map" data-testid="map">
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -70,7 +75,7 @@ const Homepage = () => {
         <LocationButton />
         <UserLocationMarker />
         <DestinationMarker />
-        <ParkingLotsMarkerContainer />
+        <ParkingLotsMarkerContainer hoverMarkerId={hoverMarkerId} />
       </div>
       <AboutButton />
     </MapContainer>

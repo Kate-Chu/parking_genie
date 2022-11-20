@@ -6,7 +6,12 @@ import LinkItem from './LinkItem';
 import transformCoord from '../../utils/transformCoord';
 import quickSort from '../../utils/quickSort';
 
-const Sidebar = () => {
+type SidebarProps = {
+  mouseEnterHandler: (id: string) => void;
+};
+
+const Sidebar: React.FC<SidebarProps> = (props) => {
+  const { mouseEnterHandler } = props;
   const map = useMap();
 
   const userLocation = useAppSelector(
@@ -40,7 +45,13 @@ const Sidebar = () => {
       className="absolute left-0 z-[999] h-screen w-screen min-w-min overflow-scroll rounded-lg bg-white py-4 pt-20 md:w-[40%] lg:w-[26%] "
     >
       {sortedParkingLots.map((item) => {
-        return <LinkItem {...item} key={item.id} />;
+        return (
+          <LinkItem
+            parkingLotInfo={item}
+            key={item.id}
+            mouseEnterHandler={mouseEnterHandler}
+          />
+        );
       })}
     </aside>
   );

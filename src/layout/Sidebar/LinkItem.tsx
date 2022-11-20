@@ -7,8 +7,14 @@ import transformCoord from '../../utils/transformCoord';
 import navigationUrlGenerator from '../../utils/navigationUrlGenerator';
 import type { ParkingLotsInfo as ParkingLotsInfoType } from '../../types';
 
-const LinkItem: React.FC<ParkingLotsInfoType> = (props) => {
-  const { name, id, address, tw97x, tw97y, distanceFromOrigin, payex } = props;
+type LinkItemProps = {
+  parkingLotInfo: ParkingLotsInfoType;
+  mouseEnterHandler: (id: string) => void;
+};
+
+const LinkItem: React.FC<LinkItemProps> = (props) => {
+  const { parkingLotInfo, mouseEnterHandler } = props;
+  const { name, id, address, tw97x, tw97y, distanceFromOrigin, payex } = parkingLotInfo;
   const availableSpaces = useAppSelector((state) => state.parkingLots.availableSpaces);
   const availableSpacesCount = availableSpaces.find((item) => item.id === id);
   const position: LatLngTuple = transformCoord([Number(tw97x), Number(tw97y)]);
@@ -29,14 +35,20 @@ const LinkItem: React.FC<ParkingLotsInfoType> = (props) => {
   };
 
   return (
-    <section className="flex items-center justify-between rounded-xl bg-white pl-16 pr-6 hover:bg-light-80">
+    <section
+      className="flex cursor-default items-center justify-between rounded-xl bg-white pl-16 pr-6 hover:bg-light-80"
+      onMouseEnter={() => mouseEnterHandler(id)}
+    >
       <section className="w-5/6 border-b-[1px] border-gray-40 py-6 pr-2">
         <h1 className="text-lg font-bold">{name}</h1>
         <p className="text-sm">{address}</p>
         <section className="flex flex-col justify-between">
           <p className="text-sm">
             <strong>剩餘車位</strong>
-            <span className="ml-2 text-lg font-semibold text-blue">
+            <span
+              className={`ml-2 font-semibold text-blue
+              ${availableSpacesCount!.availablecar > 999 ? 'text-md' : 'text-lg'} `}
+            >
               {availableSpacesCount?.availablecar || '?'}
             </span>
           </p>
