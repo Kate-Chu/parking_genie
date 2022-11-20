@@ -1,8 +1,15 @@
 // Fetched Parking Lots Type
-type FareInfo = {
+type PeriodFareInfo = {
   Period: string;
   Fare: string;
 };
+
+export type FareInfo =
+  | {
+      WorkingDay?: PeriodFareInfo[] | undefined;
+      Holiday?: PeriodFareInfo[] | undefined;
+    }
+  | undefined;
 
 type EntrancecoordInfo = {
   Xcod: string;
@@ -35,12 +42,7 @@ export type ParkingLotsInfo = {
   Accessibility_Elevator?: string;
   Phone_Charge?: string;
   Child_Pickup_Area?: string;
-  FareInfo:
-    | {
-        WorkingDay?: FareInfo[] | undefined;
-        Holiday?: FareInfo[] | undefined;
-      }
-    | undefined;
+  FareInfo: FareInfo;
   EntranceCoord: {
     EntrancecoordInfo: EntrancecoordInfo[];
   };

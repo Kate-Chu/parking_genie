@@ -31,13 +31,13 @@ const Sidebar = () => {
 
   const sidebar = L.DomUtil.get('sidebar');
   if (sidebar) {
-    L.DomEvent.on(sidebar, 'mousewheel', L.DomEvent.stopPropagation);
+    L.DomEvent.on(sidebar, 'mousewheel', (ev) => L.DomEvent.stopPropagation(ev));
   }
 
   return (
     <aside
       id="sidebar"
-      className="absolute left-0 z-[999] h-screen w-3/12 min-w-min overflow-scroll rounded-lg bg-white py-4 pt-20 "
+      className="absolute left-0 z-[999] h-screen w-[28%] min-w-min overflow-scroll rounded-lg bg-white py-4 pt-20 "
     >
       {sortedParkingLots.map((item) => {
         return <LinkItem {...item} key={item.id} />;

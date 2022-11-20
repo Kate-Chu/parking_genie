@@ -22,6 +22,7 @@ module.exports = {
       },
       blue: {
         DEFAULT: '#4171ff',
+        icon: '#1a73e8',
         dark: '#162848',
         gray: '#83879b',
         black: '#00090B',
@@ -42,6 +43,7 @@ module.exports = {
         100: '#657786',
         80: '#696974',
         60: '#b5b5be',
+        40: '#ddd',
       },
     },
   },

@@ -15,6 +15,7 @@ type ParkingLotsState = {
   availableSpaces: AvailableSpacesInfo[];
   nearbyParkingLots: ParkingLotsInfo[];
   mapBounds: LatLngBounds;
+  hideUnknownSpacesLots: boolean;
 };
 
 export const initialParkingLotsState: ParkingLotsState = {
@@ -22,6 +23,7 @@ export const initialParkingLotsState: ParkingLotsState = {
   availableSpaces: [],
   nearbyParkingLots: [],
   mapBounds: {} as LatLngBounds,
+  hideUnknownSpacesLots: true,
 };
 
 // ACTION: fetch parking lots info
@@ -58,11 +60,23 @@ const parkingLotsSlice = createSlice({
   name: 'parkingLots',
   initialState: initialParkingLotsState,
   reducers: {
-    setNearbyParkingLots: (state, action) => {
-      state.nearbyParkingLots = action.payload;
+    setNearbyParkingLots: (state, action: PayloadAction<ParkingLotsInfo[]>) => {
+      if (!state.hideUnknownSpacesLots) {
+        state.nearbyParkingLots = action.payload;
+      } else {
+        state.nearbyParkingLots = action.payload.filter((lot) => {
+          const availableSpaces = state.availableSpaces.find(
+            (space) => space.id === lot.id,
+          );
+          return availableSpaces?.availablecar;
+        });
+      }
     },
     setMapBounds: (state, action) => {
       state.mapBounds = action.payload;
+    },
+    toggleHideUnknownSpacesLots: (state) => {
+      state.hideUnknownSpacesLots = !state.hideUnknownSpacesLots;
     },
   },
   extraReducers: (builder) => {
