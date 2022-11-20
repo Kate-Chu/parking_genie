@@ -38,6 +38,7 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
     <section
       className="flex cursor-default items-center justify-between rounded-xl bg-white pl-16 pr-6 hover:bg-light-80"
       onMouseEnter={() => mouseEnterHandler(id)}
+      onMouseLeave={() => mouseEnterHandler('')}
     >
       <section className="w-5/6 border-b-[1px] border-gray-40 py-6 pr-2">
         <h1 className="text-lg font-bold">{name}</h1>
@@ -47,7 +48,12 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
             <strong>剩餘車位</strong>
             <span
               className={`ml-2 font-semibold text-blue
-              ${availableSpacesCount!.availablecar > 999 ? 'text-md' : 'text-lg'} `}
+              ${
+                availableSpacesCount?.availablecar &&
+                availableSpacesCount?.availablecar > 999
+                  ? 'text-md'
+                  : 'text-lg'
+              } `}
             >
               {availableSpacesCount?.availablecar || '?'}
             </span>
