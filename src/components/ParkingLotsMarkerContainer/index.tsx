@@ -8,7 +8,7 @@ const ParkingLotsMarkerContainer = () => {
   const map = useMap();
   const dispatch = useAppDispatch();
 
-  map.on('moveend', (e) => {
+  map.on('moveend', () => {
     dispatch(parkingLotsActions.setMapBounds(map.getBounds()));
   });
 

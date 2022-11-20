@@ -25,6 +25,9 @@ const Homepage = () => {
   const showSidebar = useAppSelector((state) => state.user.userState.showSidebar);
   const mapBounds = useAppSelector((state) => state.parkingLots.mapBounds);
   const parkingLotsInfo = useAppSelector((state) => state.parkingLots.parkingLotsInfo);
+  const hideUnknownSpacesLots = useAppSelector(
+    (state) => state.parkingLots.hideUnknownSpacesLots,
+  );
 
   useEffect(() => {
     dispatch(fetchParkingLotsInfo());
@@ -38,23 +41,24 @@ const Homepage = () => {
       return mapBounds.contains(latLng);
     });
     dispatch(parkingLotsActions.setNearbyParkingLots(list));
-  }, [mapBounds, dispatch, parkingLotsInfo]);
+  }, [mapBounds, dispatch, parkingLotsInfo, hideUnknownSpacesLots]);
 
   const toggleSidebarHandler = () => {
     dispatch(userActions.toggleSidebar());
   };
 
   const toggleHideUnknownSpacesLots = () => {
-    console.log('clicked');
     dispatch(parkingLotsActions.toggleHideUnknownSpacesLots());
   };
 
   return (
     <MapContainer center={LINE_TAIWAN} zoom={17} scrollWheelZoom doubleClickZoom={false}>
-      <section className="flex">
-        <SearchForm />
-        <FilterButton text="顯示未知車位" onClick={toggleHideUnknownSpacesLots} />
-      </section>
+      <SearchForm />
+      <FilterButton
+        text={hideUnknownSpacesLots ? '顯示未知車位' : '隱藏未知車位'}
+        onClick={toggleHideUnknownSpacesLots}
+      />
+
       <ToggleButton atClick={toggleSidebarHandler} showSidebar={showSidebar} />
       {showSidebar && <Sidebar />}
       <div id="map" data-testid="map">

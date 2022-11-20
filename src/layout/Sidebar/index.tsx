@@ -37,7 +37,7 @@ const Sidebar = () => {
   return (
     <aside
       id="sidebar"
-      className="absolute left-0 z-[999] h-screen w-[28%] min-w-min overflow-scroll rounded-lg bg-white py-4 pt-20 "
+      className="absolute left-0 z-[999] h-screen w-screen min-w-min overflow-scroll rounded-lg bg-white py-4 pt-20 md:w-[40%] lg:w-[26%] "
     >
       {sortedParkingLots.map((item) => {
         return <LinkItem {...item} key={item.id} />;
