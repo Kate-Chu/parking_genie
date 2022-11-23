@@ -5,9 +5,11 @@
   "homepage": "https://kate-chu.github.io/parking_genie",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
+    "@types/leaflet-geosearch": "^3.0.0",
     "@types/react-leaflet-markercluster": "^3.0.0",
     "gh-pages": "^4.0.0",
     "leaflet": "^1.9.2",
+    "leaflet-geosearch": "^3.7.0",
     "leaflet.markercluster": "^1.5.3",
     "proj4": "^2.7.5",
     "proj4leaflet": "^1.0.2",

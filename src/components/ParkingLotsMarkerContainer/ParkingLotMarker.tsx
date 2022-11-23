@@ -52,10 +52,10 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
   }
 
   const icon = L.divIcon({
-    className: 'div-icon-container',
-    html: `<span class="${`div-icon ${iconColor} ${
-      isHovered ? 'hovered' : null
-    }`}"><span class="div-icon__text ">${availCarSpaces}</span></span>`,
+    className: isHovered ? 'div-icon-container hovered !z-[999]' : 'div-icon-container',
+    html: `<span class="${`div-icon ${iconColor} 
+    ${isHovered ? 'hovered' : null}
+    `}"><span class="div-icon__text">${availCarSpaces}</span></span>`,
   });
 
   return (

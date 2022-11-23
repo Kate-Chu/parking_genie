@@ -62,7 +62,7 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
             <strong>距離</strong>
             <span className="ml-2">
               <span className="mr-2 text-lg font-semibold text-green">
-                {(distanceFromOrigin! / 1000).toFixed(2) || '?'}
+                {distanceFromOrigin ? (distanceFromOrigin / 1000).toFixed(2) : '?'}
               </span>
               公里
             </span>
