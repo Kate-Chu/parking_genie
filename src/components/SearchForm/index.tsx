@@ -2,9 +2,11 @@ import { memo, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
-import { ReactComponent as SearchIcon } from '../../assets/magnifying-glass.svg';
 import { useAppDispatch } from '../../store';
-import { fetchDestinationLatLng } from '../../store/userSlice';
+import { fetchDestinationLatLng, userActions } from '../../store/userSlice';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { ReactComponent as SearchIcon } from '../../assets/magnifying-glass.svg';
+import AutoCompleteList from './AutoCompleteList';
 import './searchForm.scss';
 
 type Inputs = {
@@ -12,8 +14,9 @@ type Inputs = {
 };
 
 const SearchForm = () => {
+  const window = useWindowDimensions();
   const dispatch = useAppDispatch();
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit, setValue } = useForm<Inputs>();
   const [autoCompletes, setAutoCompletes] = useState<any[] | void>([]);
   const provider = new OpenStreetMapProvider();
 
@@ -28,6 +31,10 @@ const SearchForm = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     if (!data.destination.trim()) return toast.error('請輸入目的地');
+    setAutoCompletes([]);
+    if (window.width > 640) {
+      dispatch(userActions.toggleSidebar());
+    }
     return dispatch(fetchDestinationLatLng(data.destination));
   };
 
@@ -35,7 +42,19 @@ const SearchForm = () => {
     const data = await fetchAutoCompleteData(e.target.value);
     setAutoCompletes(data);
   };
-  console.log(autoCompletes);
+
+  const clickAutoCompleteHandler = (text: string) => {
+    setValue('destination', text);
+    setAutoCompletes([]);
+    if (window.width > 640) {
+      dispatch(userActions.toggleSidebar());
+    }
+    dispatch(fetchDestinationLatLng(text));
+  };
+
+  const mouseEnterHandler = (text: string) => {
+    setValue('destination', text);
+  };
 
   return (
     <>
@@ -58,13 +77,15 @@ const SearchForm = () => {
           <SearchIcon fill="#9a9a9a" />
         </button>
       </form>
-      <ul className="absolute top-16 left-16  flex flex-col content-start items-start justify-start bg-white">
+      <ul className="absolute top-14 left-16  flex flex-col content-start items-start justify-start bg-white">
         {autoCompletes?.length
-          ? autoCompletes.map((item, index) => {
+          ? autoCompletes.slice(0, 5).map((item) => {
               return (
-                <li className="z-[1000] flex h-8 w-[18rem] flex-wrap items-center bg-white py-4 text-xs text-gray-80">
-                  <button>{item.label}</button>
-                </li>
+                <AutoCompleteList
+                  data={item}
+                  onClick={clickAutoCompleteHandler}
+                  onMouseEnter={mouseEnterHandler}
+                />
               );
             })
           : null}

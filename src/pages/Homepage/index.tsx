@@ -9,7 +9,7 @@ import DestinationMarker from '../../components/DestinationMarker';
 import ParkingLotsMarkerContainer from '../../components/ParkingLotsMarkerContainer';
 import AboutButton from '../../components/AboutButton';
 import ToggleButton from '../../components/ToggleButton';
-import FilterButton from '../../components/FilterButton';
+import FilterUnknownButton from '../../components/FilterUnknownButton';
 import { useAppSelector, useAppDispatch } from '../../store';
 import { userActions } from '../../store/userSlice';
 import { LINE_TAIWAN } from '../../data/data';
@@ -59,7 +59,7 @@ const Homepage = () => {
   return (
     <MapContainer center={LINE_TAIWAN} zoom={17} scrollWheelZoom doubleClickZoom={false}>
       <SearchForm />
-      <FilterButton
+      <FilterUnknownButton
         text={hideUnknownSpacesLots ? '顯示未知車位' : '隱藏未知車位'}
         onClick={toggleHideUnknownSpacesLots}
       />
@@ -71,7 +71,7 @@ const Homepage = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <ToastContainer />
+        <ToastContainer position="bottom-center" />
         <LocationButton />
         <UserLocationMarker />
         <DestinationMarker />

@@ -38,7 +38,7 @@ const UserLocationMarker = () => {
     if (!isRealLocation) {
       toast.info(
         '很抱歉，目前僅提供台北市內的服務，偵測您目前位於外縣市，我們將為您導向 LINE_TAIWAN！',
-        { delay: 200, bodyClassName: 'toast-body' },
+        { delay: 200, bodyClassName: 'toast-body', position: 'bottom-center' },
       );
     }
     map.flyTo(currentLocation, map.getZoom());

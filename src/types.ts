@@ -109,3 +109,24 @@ export type GeocodingData = {
   ];
   status: string;
 };
+
+export type autoComplete = {
+  bounds: [number, number][];
+  label: string;
+  raw: {
+    boundingbox: string[];
+    class: string;
+    display_name: string;
+    icon: string;
+    importance: number;
+    lat: string;
+    licence: string;
+    lon: string;
+    osm_id: number;
+    osm_type: string;
+    place_id: number;
+    type: string;
+  };
+  x: number;
+  y: number;
+};

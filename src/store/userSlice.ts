@@ -92,7 +92,6 @@ const userSlice = createSlice({
           dest.address = action.payload.data.results[0].formatted_address;
           dest.placeId = action.payload.data.results[0].place_id;
           dest.location = [lat, lng];
-          state.userState.showSidebar = true;
         },
       )
       .addCase(
