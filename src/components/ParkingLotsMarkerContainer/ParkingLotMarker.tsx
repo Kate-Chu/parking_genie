@@ -60,20 +60,23 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
 
   return (
     <Marker position={position} icon={icon} riseOnHover>
-      <Popup className="max-w-[250px]">
-        <h1 className="text-base font-bold">{data.name}</h1>
+      <Popup
+        className="z-[10000] max-w-[200px] md:max-w-[250px]"
+        autoPanPadding={L.point(5, 5)}
+      >
+        <h1 className=" text-xs font-bold md:text-base">{data.name}</h1>
         <section className="my-2 flex flex-col justify-between gap-1">
-          <h6 className="text-sm">
+          <h6 className="text-xs md:text-sm">
             <strong>總車位</strong> {data.totalcar}
           </h6>
-          <h6 className="text-sm">
+          <h6 className="text-xs md:text-sm">
             <strong>目前車位</strong> {availCarSpaces}
           </h6>
-          <h6 className="text-sm">
+          <h6 className="text-xs md:text-sm">
             <strong>費率</strong> {data.payex}
           </h6>
         </section>
-        <button className=" w-full rounded-3xl bg-primary py-1.5 px-5 text-sm">
+        <button className=" w-full rounded-3xl bg-primary py-1.5 px-5 text-xs md:text-sm">
           <a
             href={navigationUrlGenerator(origin, destination)}
             target="_blank"

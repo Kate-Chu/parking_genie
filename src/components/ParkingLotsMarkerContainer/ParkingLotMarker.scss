@@ -10,6 +10,12 @@
   transform: rotate(-45deg);
   border-width: 2px;
 
+  @media (max-width: 640px) {
+    width: 1.7rem;
+    height: 1.7rem;
+    line-height: 1.5;
+  }
+
   &.hovered {
     scale: 1.4;
   }
@@ -26,5 +32,11 @@
     font-size: 1.1rem;
     margin: auto;
     background-color: white;
+
+    @media (max-width: 640px) {
+      width: 1.4rem;
+      height: 1.4rem;
+      font-size: 0.7rem;
+    }
   }
 }

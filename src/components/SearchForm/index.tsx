@@ -30,7 +30,8 @@ const SearchForm = () => {
   };
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    if (!data.destination.trim()) return toast.error('請輸入目的地');
+    if (!data.destination.trim())
+      return toast.error('請輸入目的地', { position: 'bottom-center' });
     setAutoCompletes([]);
     if (window.width > 640) {
       dispatch(userActions.toggleSidebar());

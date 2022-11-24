@@ -75,7 +75,7 @@ const parkingLotsSlice = createSlice({
     setMapBounds: (state, action) => {
       state.mapBounds = action.payload;
     },
-    toggleHideUnknownSpacesLots: (state) => {
+    toggleUnknownSpacesLots: (state) => {
       state.hideUnknownSpacesLots = !state.hideUnknownSpacesLots;
     },
   },
