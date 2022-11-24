@@ -11,7 +11,7 @@ import type { GeocodingData } from '../types';
 
 const GEOCODING_API = process.env.REACT_APP_GEOCODING_API_KEY;
 
-type userState = {
+export type UserState = {
   userState: {
     showSidebar: boolean;
     currentLocation: {
@@ -28,7 +28,7 @@ type userState = {
   };
 };
 
-export const initialUserState: userState = {
+export const initialUserState: UserState = {
   userState: {
     showSidebar: false,
     currentLocation: { latLng: undefined, placeId: null, isRealLocation: undefined },

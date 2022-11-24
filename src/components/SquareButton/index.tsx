@@ -4,16 +4,18 @@ type SquareButtonProps = {
   position: string;
   icon: JSX.Element;
   title: string;
+  dataTestId: string;
   clickHandler: () => void;
 };
 
 const SquareButton: React.FC<SquareButtonProps> = (props) => {
-  const { position, icon, title, clickHandler } = props;
+  const { position, icon, title, clickHandler, dataTestId } = props;
 
   return (
     <button
       className={`location-btn z-[1000] flex h-8 w-8 items-center justify-center rounded-md border-[1.5px] border-gray-60 bg-white ${position}`}
       title={title}
+      data-testId={dataTestId}
       onClick={clickHandler}
     >
       {icon}

@@ -10,7 +10,7 @@ import type {
 const INFO_URL = `https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_alldesc.json`;
 const AVAILABLE_URL = `https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_allavailable.json`;
 
-type ParkingLotsState = {
+export type ParkingLotsState = {
   parkingLotsInfo: ParkingLotsInfo[];
   availableSpaces: AvailableSpacesInfo[];
   nearbyParkingLots: ParkingLotsInfo[];

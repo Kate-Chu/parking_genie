@@ -51,6 +51,7 @@ const Homepage = () => {
       const latLng = transformCoord([Number(parkLot.tw97x), Number(parkLot.tw97y)]);
       return mapBounds.contains(latLng);
     });
+    console.log(list);
     dispatch(parkingLotsActions.setNearbyParkingLots(list));
   }, [mapBounds, dispatch, parkingLotsInfo, hideUnknownSpacesLots]);
 
@@ -92,16 +93,19 @@ const Homepage = () => {
           position="absolute top-20 left-3"
           icon={locateBtnIcon}
           title="My location"
+          dataTestId="locateBtn"
           clickHandler={userLocationHandler}
         />
         <SquareButton
           position="absolute top-[7.5rem] left-3"
           icon={questionIcon}
           title="Pay Parking Fee"
+          dataTestId="toggleUnknownBtn"
           clickHandler={toggleUnknownSpacesLots}
         />
         <SquareButton
           position="absolute top-40 left-3"
+          dataTestId="payBtn"
           icon={payBtnIcon}
           title="Pay Parking Fee"
           clickHandler={toggleModal}
@@ -112,7 +116,13 @@ const Homepage = () => {
             <p>或簽帳金融卡</p>
           </Card>
           <Card tailwind="bg-white cursor-pointer flex items-center justify-center w-60 h-40 rounded-md text-lg">
-            + <img src={linePayLogo} alt="line pay" className="w-1/2 pl-4" />
+            +{' '}
+            <img
+              src={linePayLogo}
+              alt="line pay"
+              data-testid="linePay"
+              className="w-1/2 pl-4"
+            />
           </Card>
         </Modal>
         <UserLocationMarker />

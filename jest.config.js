@@ -24,9 +24,12 @@ module.exports = {
     '\\.(css|less|scss)$': '<rootDir>/mocks/styleMock.js',
     '/^components/(.*)$/': '<rootDir>/src/components/$1',
     'react-leaflet': '<rootDir>/mocks/reactLeafletMock.js',
+    'react-geosearch': '<rootDir>/mocks/leafletGeosearchMock.js',
   },
   moduleFileExtensions: ['js', 'ts', 'jsx', 'tsx'],
-  transformIgnorePatterns: ['/node_modules/(?!(somePkg)|react-leaflet|@react-leaflet)'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(somePkg)|react-leaflet|@react-leaflet|leaflet-geosearch/)',
+  ],
   roots: ['src'],
   moduleDirectories: ['node_modules', '<rootDir>'],
   modulePaths: ['<rootDir>/src'],

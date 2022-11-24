@@ -1,15 +1,31 @@
 import { screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { renderWithProviders } from '../utils/testUtils';
-// import App from '../App';
 import About from '../pages/About';
+// import Homepage from '../pages/Homepage';
 
-test('renders learn react link', () => {
+describe('redux unit text', () => {
   renderWithProviders(
     <Router>
-      <About />
+      <About />,
     </Router>,
   );
-  const linkElement = screen.getByText(/Parking Genie/i);
-  expect(linkElement).toBeInTheDocument();
+
+  test('renders about us', () => {
+    const linkElement = screen.getByText(/Parking Genie/i);
+    expect(linkElement).toBeInTheDocument();
+  });
+
+  // bug: cannot set transformIgnorePatterns in jest.config.js *** need to fix
+  // renderWithProviders(
+  //   <Router>
+  //     <Homepage />,
+  //   </Router>,
+  // );
+
+  // test('render homepage', () => {
+  //   const payBtn = screen.getByTestId('payBtn');
+  //   fireEvent.click(payBtn);
+  //   expect(screen.getByTestId('linePay')).toBeInTheDocument();
+  // });
 });
