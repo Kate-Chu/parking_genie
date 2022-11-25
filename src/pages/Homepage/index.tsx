@@ -51,7 +51,6 @@ const Homepage = () => {
       const latLng = transformCoord([Number(parkLot.tw97x), Number(parkLot.tw97y)]);
       return mapBounds.contains(latLng);
     });
-    console.log(list);
     dispatch(parkingLotsActions.setNearbyParkingLots(list));
   }, [mapBounds, dispatch, parkingLotsInfo, hideUnknownSpacesLots]);
 
