@@ -35,12 +35,12 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
   };
 
   return (
-    <section
+    <li
       className="flex cursor-default items-center justify-between rounded-xl bg-white pl-16 pr-6 hover:bg-light-80"
       onMouseEnter={() => mouseEnterHandler(id)}
       onMouseLeave={() => mouseEnterHandler('')}
     >
-      <section className="w-5/6 border-b-[1px] border-gray-40 py-6 pr-2">
+      <li className="w-5/6 border-b-[1px] border-gray-40 py-6 pr-2">
         <h1 className="text-lg font-bold">{name}</h1>
         <p className="text-sm">{address}</p>
         <section className="flex flex-col justify-between">
@@ -72,7 +72,7 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
             <span className="ml-2">{payex}</span>
           </p>
         </section>
-      </section>
+      </li>
       <button className="h-8 w-8 rounded-full border-[1px] border-blue-icon text-center">
         <a
           href={navigationUrlGenerator(origin, destination)}
@@ -84,7 +84,7 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
           </span>
         </a>
       </button>
-    </section>
+    </li>
   );
 };
 

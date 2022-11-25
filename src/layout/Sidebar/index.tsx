@@ -44,15 +44,17 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
       id="sidebar"
       className="absolute left-0 z-[999] h-screen w-screen min-w-min overflow-scroll rounded-lg bg-white py-4 pt-20 md:w-[40%] lg:w-[26%] "
     >
-      {sortedParkingLots.map((item) => {
-        return (
-          <LinkItem
-            parkingLotInfo={item}
-            key={item.id}
-            mouseEnterHandler={mouseEnterHandler}
-          />
-        );
-      })}
+      <ul>
+        {sortedParkingLots.map((item) => {
+          return (
+            <LinkItem
+              parkingLotInfo={item}
+              key={item.id}
+              mouseEnterHandler={mouseEnterHandler}
+            />
+          );
+        })}
+      </ul>
     </aside>
   );
 };

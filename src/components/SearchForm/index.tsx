@@ -78,19 +78,22 @@ const SearchForm = () => {
           <SearchIcon fill="#9a9a9a" />
         </button>
       </form>
-      <ul className="absolute top-14 left-16  flex flex-col content-start items-start justify-start bg-white">
-        {autoCompletes?.length
-          ? autoCompletes.slice(0, 5).map((item) => {
-              return (
-                <AutoCompleteList
-                  data={item}
-                  onClick={clickAutoCompleteHandler}
-                  onMouseEnter={mouseEnterHandler}
-                />
-              );
-            })
-          : null}
-      </ul>
+      {autoCompletes?.length ? (
+        <ul
+          id="geo-search-ul"
+          className="absolute top-14 left-16  flex flex-col content-start items-start justify-start bg-white"
+        >
+          {autoCompletes.slice(0, 5).map((item) => {
+            return (
+              <AutoCompleteList
+                data={item}
+                onClick={clickAutoCompleteHandler}
+                onMouseEnter={mouseEnterHandler}
+              />
+            );
+          })}
+        </ul>
+      ) : null}
     </>
   );
 };
