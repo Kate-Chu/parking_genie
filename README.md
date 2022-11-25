@@ -1,4 +1,4 @@
-![image](https://github.com/Kate-Chu/parking_genie/blob/main/src/assets/demo-10ftp.gif)
+![image](https://github.com/Kate-Chu/parking_genie/blob/main/src/assets/parking-genie-demo.gif)
 
 ## 介紹
 
@@ -50,6 +50,14 @@ You can now view parking-genie in the browser.
 
 7. 結束運行請在終端機頁面按下 command + c (Mac) 或 ctrl + c (Windows) 即可終止程式。
 
+8. 您可以在終端機執行以下指令進行 end-to-end 測試
+
+```
+npm run e2etest
+```
+
+9. 目前 end-to-end 測試需要您在結束後手動輸入 `command + c (Mac) 或 ctrl + c` 關閉，我們會盡快會恢復相關問題。
+
 ## 主要開發工具
 
 - typescript
@@ -59,6 +67,8 @@ You can now view parking-genie in the browser.
 - react-hook-form
 - leaflet
 - react-leaflet
+- jest
+- puppeteer
 - proj4
 - proj4leaflet
 - sass
