@@ -68,7 +68,7 @@ const parkingLotsSlice = createSlice({
           const availableSpaces = state.availableSpaces.find(
             (space) => space.id === lot.id,
           );
-          return availableSpaces?.availablecar;
+          return availableSpaces?.availablecar && availableSpaces.availablecar >= 0;
         });
       }
     },
