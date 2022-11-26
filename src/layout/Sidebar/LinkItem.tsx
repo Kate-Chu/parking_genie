@@ -40,7 +40,7 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
       onMouseEnter={() => mouseEnterHandler(id)}
       onMouseLeave={() => mouseEnterHandler('')}
     >
-      <li className="w-5/6 border-b-[1px] border-gray-40 py-6 pr-2">
+      <section className="w-5/6 border-b-[1px] border-gray-40 py-6 pr-2">
         <h1 className="text-lg font-bold">{name}</h1>
         <p className="text-sm">{address}</p>
         <section className="flex flex-col justify-between">
@@ -72,7 +72,7 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
             <span className="ml-2">{payex}</span>
           </p>
         </section>
-      </li>
+      </section>
       <button className="h-8 w-8 rounded-full border-[1px] border-blue-icon text-center">
         <a
           href={navigationUrlGenerator(origin, destination)}

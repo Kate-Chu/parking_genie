@@ -60,7 +60,7 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
     }</span></span>`,
   });
 
-  return availCarSpaces > 0 ? (
+  return availCarSpaces >= 0 ? (
     <Marker position={position} icon={icon} riseOnHover>
       <Popup
         className="z-[10000] max-w-[200px] md:max-w-[250px]"
