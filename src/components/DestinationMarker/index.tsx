@@ -6,7 +6,7 @@ import locationIcon from '../../assets/destination.png';
 
 const DestinationMarker = () => {
   const map = useMap();
-  const destination = useAppSelector((state) => state.user.userState.destination);
+  const destination = useAppSelector((state) => state.user.destination);
 
   const icon = L.icon({
     iconUrl: locationIcon,

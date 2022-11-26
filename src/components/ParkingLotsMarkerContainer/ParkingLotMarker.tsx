@@ -17,14 +17,10 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
   const { data, isHovered } = props;
   const position: LatLngTuple = transformCoord([Number(data.tw97x), Number(data.tw97y)]);
 
-  const userLocation = useAppSelector(
-    (state) => state.user.userState.currentLocation.latLng,
-  );
+  const userLocation = useAppSelector((state) => state.user.currentLocation.latLng);
   const origin = userLocation || LINE_TAIWAN;
 
-  const destinationPlaceId = useAppSelector(
-    (state) => state.user.userState.destination.placeId,
-  );
+  const destinationPlaceId = useAppSelector((state) => state.user.destination.placeId);
 
   const destination = {
     latLng: position,

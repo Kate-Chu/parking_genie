@@ -19,13 +19,9 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
   const availableSpacesCount = availableSpaces.find((item) => item.id === id);
   const position: LatLngTuple = transformCoord([Number(tw97x), Number(tw97y)]);
 
-  const userLocation = useAppSelector(
-    (state) => state.user.userState.currentLocation.latLng,
-  );
+  const userLocation = useAppSelector((state) => state.user.currentLocation.latLng);
 
-  const destinationPlaceId = useAppSelector(
-    (state) => state.user.userState.destination.placeId,
-  );
+  const destinationPlaceId = useAppSelector((state) => state.user.destination.placeId);
 
   const origin = userLocation || LINE_TAIWAN;
 

@@ -27,20 +27,17 @@ const UserLocationMarker = () => {
     });
   }, [dispatch, map]);
 
-  const currentLocation = useAppSelector(
-    (state) => state.user.userState.currentLocation.latLng,
-  );
+  const currentLocation = useAppSelector((state) => state.user.currentLocation.latLng);
   const isRealLocation = useAppSelector(
-    (state) => state.user.userState.currentLocation.isRealLocation,
+    (state) => state.user.currentLocation.isRealLocation,
   );
 
-  if (currentLocation) {
-    if (!isRealLocation) {
-      toast.info(
-        '很抱歉，目前僅提供台北市內的服務，偵測您目前位於外縣市，我們將為您導向 LINE_TAIWAN！',
-        { delay: 200, bodyClassName: 'toast-body', position: 'bottom-center' },
-      );
-    }
+  if (currentLocation && !isRealLocation) {
+    toast.info(
+      '很抱歉，目前僅提供台北市內的服務，偵測您目前位於外縣市，我們將為您導向 LINE_TAIWAN！',
+      { delay: 200, bodyClassName: 'toast-body', position: 'bottom-center' },
+    );
+
     map.flyTo(currentLocation, map.getZoom());
   }
 

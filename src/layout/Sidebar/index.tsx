@@ -14,9 +14,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
   const { mouseEnterHandler } = props;
   const map = useMap();
 
-  const userLocation = useAppSelector(
-    (state) => state.user.userState.currentLocation.latLng,
-  );
+  const userLocation = useAppSelector((state) => state.user.currentLocation.latLng);
 
   const nearbyParkingLots = useAppSelector(
     (state) => state.parkingLots.nearbyParkingLots,

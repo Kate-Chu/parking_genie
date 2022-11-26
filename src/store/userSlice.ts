@@ -12,32 +12,28 @@ import type { GeocodingData } from '../types';
 const GEOCODING_API = process.env.REACT_APP_GEOCODING_API_KEY;
 
 export type UserState = {
-  userState: {
-    showSidebar: boolean;
-    currentLocation: {
-      latLng: LatLngTuple | undefined;
-      placeId: null | string;
-      isRealLocation: boolean | undefined;
-    };
-    destination: {
-      searchInput: null | string;
-      placeId: null | string;
-      address: null | string;
-      location: undefined | LatLngExpression;
-    };
+  showSidebar: boolean;
+  currentLocation: {
+    latLng: LatLngTuple | undefined;
+    placeId: null | string;
+    isRealLocation: boolean | undefined;
+  };
+  destination: {
+    searchInput: null | string;
+    placeId: null | string;
+    address: null | string;
+    location: undefined | LatLngExpression;
   };
 };
 
 export const initialUserState: UserState = {
-  userState: {
-    showSidebar: false,
-    currentLocation: { latLng: undefined, placeId: null, isRealLocation: undefined },
-    destination: {
-      searchInput: null,
-      placeId: null,
-      address: null,
-      location: undefined,
-    },
+  showSidebar: false,
+  currentLocation: { latLng: undefined, placeId: null, isRealLocation: undefined },
+  destination: {
+    searchInput: null,
+    placeId: null,
+    address: null,
+    location: undefined,
   },
 };
 
@@ -78,7 +74,7 @@ const userSlice = createSlice({
   initialState: initialUserState,
   reducers: {
     toggleSidebar: (state) => {
-      state.userState.showSidebar = !state.userState.showSidebar;
+      state.showSidebar = !state.showSidebar;
     },
   },
   extraReducers: (builder) => {
@@ -86,7 +82,7 @@ const userSlice = createSlice({
       .addCase(
         fetchDestinationLatLng.fulfilled,
         (state, action: PayloadAction<{ input: string; data: GeocodingData }>) => {
-          const dest = state.userState.destination;
+          const dest = state.destination;
           const { lat, lng } = action.payload.data.results[0].geometry.location;
           dest.searchInput = action.payload.input;
           dest.address = action.payload.data.results[0].formatted_address;
@@ -97,22 +93,21 @@ const userSlice = createSlice({
       .addCase(
         fetchCurrentLocation.fulfilled,
         (state, action: PayloadAction<{ input: LocationEvent; data: GeocodingData }>) => {
-          state.userState.currentLocation.placeId =
-            action.payload.data.results[0].place_id;
+          state.currentLocation.placeId = action.payload.data.results[0].place_id;
 
           const currentLatLan: LatLngExpression = action.payload.input.latlng;
           if (
             Math.floor(currentLatLan.lat) !== TAIPEI_LAT ||
             Math.floor(currentLatLan.lng) !== TAIPEI_LNG
           ) {
-            state.userState.currentLocation.latLng = LINE_TAIWAN;
-            state.userState.currentLocation.isRealLocation = false;
+            state.currentLocation.latLng = LINE_TAIWAN;
+            state.currentLocation.isRealLocation = false;
           } else {
-            state.userState.currentLocation.latLng = [
+            state.currentLocation.latLng = [
               action.payload.input.latlng.lat,
               action.payload.input.latlng.lng,
             ];
-            state.userState.currentLocation.isRealLocation = true;
+            state.currentLocation.isRealLocation = true;
           }
         },
       );

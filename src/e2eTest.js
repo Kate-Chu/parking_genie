@@ -51,12 +51,12 @@ const URL = 'https://kate-chu.github.io/parking_genie/';
   await page.screenshot({ path: 'after-submit-search.png', delay: 30000 });
 
   // test click navigation button
-  await page.focus('#sidebar > ul > li:first-child > li + button', {
+  await page.focus('#sidebar > ul > li:first-child > button', {
     delay: 10000,
     visible: true,
   });
 
-  await page.click('#sidebar > ul > li:first-child > li + button', {
+  await page.click('#sidebar > ul > li:first-child > button', {
     delay: 1000,
     visible: true,
   });

@@ -28,7 +28,7 @@ import transformCoord from '../../utils/transformCoord';
 const Homepage = () => {
   const [hoverMarkerId, setHoverMarkerId] = useState<string | null>(null);
   const dispatch = useAppDispatch();
-  const showSidebar = useAppSelector((state) => state.user.userState.showSidebar);
+  const showSidebar = useAppSelector((state) => state.user.showSidebar);
   const mapBounds = useAppSelector((state) => state.parkingLots.mapBounds);
   const parkingLotsInfo = useAppSelector((state) => state.parkingLots.parkingLotsInfo);
   const hideUnknownSpacesLots = useAppSelector(
@@ -67,9 +67,7 @@ const Homepage = () => {
   };
 
   const map = useMap();
-  const currentLocation = useAppSelector(
-    (state) => state.user.userState.currentLocation.latLng,
-  );
+  const currentLocation = useAppSelector((state) => state.user.currentLocation.latLng);
 
   const userLocationHandler = () => {
     if (currentLocation) {
