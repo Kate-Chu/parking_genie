@@ -15,7 +15,7 @@ const SquareButton: React.FC<SquareButtonProps> = (props) => {
     <button
       className={`location-btn z-[1000] flex h-8 w-8 items-center justify-center rounded-md border-[1.5px] border-gray-60 bg-white ${position}`}
       title={title}
-      data-testId={dataTestId}
+      data-testid={dataTestId}
       onClick={clickHandler}
     >
       {icon}

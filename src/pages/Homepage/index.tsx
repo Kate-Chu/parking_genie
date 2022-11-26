@@ -47,6 +47,14 @@ const Homepage = () => {
   dispatch(fetchAvailableSpacesInfo());
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch(fetchAvailableSpacesInfo());
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, [dispatch]);
+
+  useEffect(() => {
     const list = parkingLotsInfo.filter((parkLot) => {
       const latLng = transformCoord([Number(parkLot.tw97x), Number(parkLot.tw97y)]);
       return mapBounds.contains(latLng);

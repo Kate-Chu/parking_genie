@@ -55,10 +55,12 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
     className: isHovered ? 'div-icon-container hovered !z-[999]' : 'div-icon-container',
     html: `<span class="${`div-icon ${iconColor} 
     ${isHovered ? 'hovered' : null}
-    `}"><span class="div-icon__text">${availCarSpaces}</span></span>`,
+    `}"><span class="div-icon__text">${
+      availCarSpaces > 0 ? availCarSpaces : '?'
+    }</span></span>`,
   });
 
-  return (
+  return availCarSpaces > 0 ? (
     <Marker position={position} icon={icon} riseOnHover>
       <Popup
         className="z-[10000] max-w-[200px] md:max-w-[250px]"
@@ -88,7 +90,7 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
         </button>
       </Popup>
     </Marker>
-  );
+  ) : null;
 };
 
 export default React.memo(ParkingLotsMarker);
