@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/parking_genie/static/css/main.a0441eb9.css",
-    "main.js": "/parking_genie/static/js/main.b3bd7692.js",
+    "main.js": "/parking_genie/static/js/main.22187b45.js",
     "static/media/company-logo.jpg": "/parking_genie/static/media/company-logo.2e896c5d2b897d251e7e.jpg",
     "static/media/map.png": "/parking_genie/static/media/map.a8f26be3394e2f329b2f.png",
     "static/media/car.png": "/parking_genie/static/media/car.19293be55d48d49d0c5e.png",
@@ -14,10 +14,10 @@
     "static/media/navigation.svg": "/parking_genie/static/media/navigation.22ca36581524c46ca2400f032dc1eb81.svg",
     "static/media/triangle.svg": "/parking_genie/static/media/triangle.1d57e6010ffecf14939d1f3fe867c8d6.svg",
     "main.a0441eb9.css.map": "/parking_genie/static/css/main.a0441eb9.css.map",
-    "main.b3bd7692.js.map": "/parking_genie/static/js/main.b3bd7692.js.map"
+    "main.22187b45.js.map": "/parking_genie/static/js/main.22187b45.js.map"
   },
   "entrypoints": [
     "static/css/main.a0441eb9.css",
-    "static/js/main.b3bd7692.js"
+    "static/js/main.22187b45.js"
   ]
 }
