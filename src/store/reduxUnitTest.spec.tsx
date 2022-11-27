@@ -16,7 +16,7 @@ describe('redux unit text', () => {
     expect(linkElement).toBeInTheDocument();
   });
 
-  // bug: cannot set transformIgnorePatterns in jest.config.js *** need to fix
+  // bug: cannot set transformIgnorePatterns (leaflet-geosearch) in jest.config.js *** need to fix
   // renderWithProviders(
   //   <Router>
   //     <Homepage />,

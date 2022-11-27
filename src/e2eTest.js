@@ -35,7 +35,7 @@ const URL = 'https://kate-chu.github.io/parking_genie/';
   await page.focus('#destination');
   await page.type('#destination', '台灣大學', { delay: 300 });
   await page.waitForSelector('#geo-search-ul', { delay: 1000 });
-  await page.screenshot({ path: 'leaflet-geosearch.png', delay: 5000 });
+  await page.screenshot({ path: './test/leaflet-geosearch.png', delay: 5000 });
   await page.keyboard.down('Enter');
 
   // test search result
@@ -48,7 +48,7 @@ const URL = 'https://kate-chu.github.io/parking_genie/';
     visible: true,
     delay: 10000,
   });
-  await page.screenshot({ path: 'after-submit-search.png', delay: 30000 });
+  await page.screenshot({ path: './test/after-submit-search.png', delay: 30000 });
 
   // test click navigation button
   await page.focus('#sidebar > ul > li:first-child > button', {
