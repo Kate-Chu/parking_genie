@@ -17,7 +17,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = (props) => {
       onClick={atClick}
     >
       <ToggleIcon
-        className={`h-5 w-4 rotate-[270deg] ${showSidebar ? null : 'rotate-90'}`}
+        className={`h-5 w-4 rotate-[270deg] ${!showSidebar && 'rotate-90'}`}
         fill="#696974"
       />
     </button>
