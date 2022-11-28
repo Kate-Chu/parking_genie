@@ -12,7 +12,6 @@ import type { GeocodingData } from '../types';
 const GEOCODING_API = process.env.REACT_APP_GEOCODING_API_KEY;
 
 export type UserState = {
-  showSidebar: boolean;
   currentLocation: {
     latLng: LatLngTuple | undefined;
     placeId: null | string;
@@ -27,7 +26,6 @@ export type UserState = {
 };
 
 export const initialUserState: UserState = {
-  showSidebar: false,
   currentLocation: { latLng: undefined, placeId: null, isRealLocation: undefined },
   destination: {
     searchInput: null,
@@ -72,11 +70,7 @@ export const fetchDestinationLatLng = createAsyncThunk(
 const userSlice = createSlice({
   name: 'user',
   initialState: initialUserState,
-  reducers: {
-    toggleSidebar: (state) => {
-      state.showSidebar = !state.showSidebar;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(

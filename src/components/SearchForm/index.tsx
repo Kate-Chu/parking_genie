@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import { useAppDispatch } from '../../store';
-import { fetchDestinationLatLng, userActions } from '../../store/userSlice';
+import { fetchDestinationLatLng } from '../../store/userSlice';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { ReactComponent as SearchIcon } from '../../assets/magnifying-glass.svg';
 import AutoCompleteList from './AutoCompleteList';
@@ -13,7 +13,11 @@ type Inputs = {
   destination: string;
 };
 
-const SearchForm = () => {
+type SearchFormProps = {
+  toggleSidebarHandler: (input: boolean) => void;
+};
+
+const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
   const window = useWindowDimensions();
   const dispatch = useAppDispatch();
   const { register, handleSubmit, setValue } = useForm<Inputs>();
@@ -33,9 +37,11 @@ const SearchForm = () => {
     if (!data.destination.trim())
       return toast.error('請輸入目的地', { position: 'bottom-center' });
     setAutoCompletes([]);
+
     if (window.width > 640) {
-      dispatch(userActions.toggleSidebar());
+      toggleSidebarHandler(true);
     }
+
     return dispatch(fetchDestinationLatLng(data.destination));
   };
 
@@ -47,8 +53,9 @@ const SearchForm = () => {
   const clickAutoCompleteHandler = (text: string) => {
     setValue('destination', text);
     setAutoCompletes([]);
+
     if (window.width > 640) {
-      dispatch(userActions.toggleSidebar());
+      toggleSidebarHandler(true);
     }
     dispatch(fetchDestinationLatLng(text));
   };

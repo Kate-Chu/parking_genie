@@ -12,7 +12,6 @@ import ToggleButton from '../../components/ToggleButton';
 import Card from '../../components/Card';
 import Modal from '../../layout/Modal';
 import useModal from '../../hooks/useModal';
-import { userActions } from '../../store/userSlice';
 import { ReactComponent as LocationCrossIcon } from '../../assets/location-crosshairs.svg';
 import { ReactComponent as DollarIcon } from '../../assets/dollar.svg';
 import { ReactComponent as QuestionIcon } from '../../assets/question.svg';
@@ -28,7 +27,7 @@ import transformCoord from '../../utils/transformCoord';
 const Homepage = () => {
   const [hoverMarkerId, setHoverMarkerId] = useState<string | null>(null);
   const dispatch = useAppDispatch();
-  const showSidebar = useAppSelector((state) => state.user.showSidebar);
+  const [showSidebar, setShowSidebar] = useState(false);
   const mapBounds = useAppSelector((state) => state.parkingLots.mapBounds);
   const parkingLotsInfo = useAppSelector((state) => state.parkingLots.parkingLotsInfo);
   const hideUnknownSpacesLots = useAppSelector(
@@ -62,9 +61,9 @@ const Homepage = () => {
   const map = useMap();
   const currentLocation = useAppSelector((state) => state.user.currentLocation.latLng);
 
-  const toggleSidebarHandler = useCallback(() => {
-    dispatch(userActions.toggleSidebar());
-  }, [dispatch]);
+  const toggleSidebarHandler = useCallback((input: boolean) => {
+    setShowSidebar(input);
+  }, []);
 
   const userLocationHandler = useCallback(() => {
     if (currentLocation) {
@@ -82,7 +81,7 @@ const Homepage = () => {
 
   return (
     <>
-      <SearchForm />
+      <SearchForm toggleSidebarHandler={toggleSidebarHandler} />
       <ToggleButton atClick={toggleSidebarHandler} showSidebar={showSidebar} />
       {showSidebar && <Sidebar mouseEnterHandler={mouseEnterHandler} />}
       <div id="map" data-testid="map">

@@ -1,8 +1,7 @@
-import userReducer, { type UserState, userActions } from './userSlice';
+import userReducer, { type UserState } from './userSlice';
 
 describe('user reducer', () => {
   const state: UserState = {
-    showSidebar: false,
     currentLocation: { latLng: undefined, placeId: null, isRealLocation: undefined },
     destination: {
       searchInput: null,
@@ -15,16 +14,6 @@ describe('user reducer', () => {
     const initialState: UserState = state;
     const action = { type: 'unknown' };
     const expectedState = initialState;
-    expect(userReducer(initialState, action)).toEqual(expectedState);
-  });
-
-  test('should handle toggleSidebar', () => {
-    const initialState: UserState = {
-      ...state,
-      showSidebar: false,
-    };
-    const action = userActions.toggleSidebar();
-    const expectedState = { userState: { ...state, showSidebar: true } };
     expect(userReducer(initialState, action)).toEqual(expectedState);
   });
 });
