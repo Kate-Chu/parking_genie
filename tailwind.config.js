@@ -50,9 +50,9 @@ module.exports = {
   plugins: [
     plugin(({ addUtilities, addComponents, addVariant, e }) => {
       addComponents({
-        '.form-step-title': {}, // define in app.scss
-        '.form-label': {}, // define in app.scss
-        '.form-control': {}, // define in app.scss
+        '.form-step-title': {},
+        '.form-label': {},
+        '.form-control': {},
       });
 
       const newUtilities = {

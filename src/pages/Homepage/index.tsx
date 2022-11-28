@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { TileLayer, useMap } from 'react-leaflet';
 import { ToastContainer } from 'react-toastify';
 import Sidebar from '../../layout/Sidebar';
@@ -42,11 +42,8 @@ const Homepage = () => {
 
   useEffect(() => {
     dispatch(fetchParkingLotsInfo());
-  }, [dispatch]);
+    dispatch(fetchAvailableSpacesInfo());
 
-  dispatch(fetchAvailableSpacesInfo());
-
-  useEffect(() => {
     const interval = setInterval(() => {
       dispatch(fetchAvailableSpacesInfo());
     }, 30000);
@@ -62,26 +59,26 @@ const Homepage = () => {
     dispatch(parkingLotsActions.setNearbyParkingLots(list));
   }, [mapBounds, dispatch, parkingLotsInfo, hideUnknownSpacesLots]);
 
-  const toggleSidebarHandler = () => {
-    dispatch(userActions.toggleSidebar());
-  };
-
   const map = useMap();
   const currentLocation = useAppSelector((state) => state.user.currentLocation.latLng);
 
-  const userLocationHandler = () => {
+  const toggleSidebarHandler = useCallback(() => {
+    dispatch(userActions.toggleSidebar());
+  }, [dispatch]);
+
+  const userLocationHandler = useCallback(() => {
     if (currentLocation) {
       map.flyTo(currentLocation, map.getZoom());
     }
-  };
+  }, [currentLocation, map]);
 
-  const toggleUnknownSpacesLots = () => {
+  const toggleUnknownSpacesLots = useCallback(() => {
     dispatch(parkingLotsActions.toggleUnknownSpacesLots());
-  };
+  }, [dispatch]);
 
-  const mouseEnterHandler = (id: string) => {
+  const mouseEnterHandler = useCallback((id: string) => {
     setHoverMarkerId(id);
-  };
+  }, []);
 
   return (
     <>

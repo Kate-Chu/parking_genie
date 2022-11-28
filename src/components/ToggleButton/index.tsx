@@ -1,5 +1,4 @@
 import { memo } from 'react';
-// import L from 'leaflet';
 import { ReactComponent as ToggleIcon } from '../../assets/triangle.svg';
 
 type ToggleButtonProps = {

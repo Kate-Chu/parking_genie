@@ -81,7 +81,7 @@ const SearchForm = () => {
       {autoCompletes?.length ? (
         <ul
           id="geo-search-ul"
-          className="absolute top-14 left-16  flex flex-col content-start items-start justify-start bg-white"
+          className="absolute top-14 left-16 flex flex-col content-start items-start justify-start bg-white"
         >
           {autoCompletes.slice(0, 5).map((item) => {
             return (
