@@ -1,5 +1,4 @@
 import { memo, useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import { useAppDispatch } from '../../store';
@@ -9,18 +8,14 @@ import { ReactComponent as SearchIcon } from '../../assets/magnifying-glass.svg'
 import AutoCompleteList from './AutoCompleteList';
 import './searchForm.scss';
 
-type Inputs = {
-  destination: string;
-};
-
 type SearchFormProps = {
   toggleSidebarHandler: (input: boolean) => void;
 };
 
 const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
+  const [searchInput, setSearchInput] = useState<string>('');
   const window = useWindowDimensions();
   const dispatch = useAppDispatch();
-  const { register, handleSubmit, setValue } = useForm<Inputs>();
   const [autoCompletes, setAutoCompletes] = useState<any[] | void>([]);
   const provider = new OpenStreetMapProvider();
 
@@ -33,25 +28,14 @@ const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
     }
   };
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    if (!data.destination.trim())
-      return toast.error('請輸入目的地', { position: 'bottom-center' });
-    setAutoCompletes([]);
-
-    if (window.width > 640) {
-      toggleSidebarHandler(true);
-    }
-
-    return dispatch(fetchDestinationLatLng(data.destination));
-  };
-
-  const changeHandler = async (e: any) => {
+  const changeHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value);
     const data = await fetchAutoCompleteData(e.target.value);
     setAutoCompletes(data);
   };
 
   const clickAutoCompleteHandler = (text: string) => {
-    setValue('destination', text);
+    setSearchInput(text);
     setAutoCompletes([]);
 
     if (window.width > 640) {
@@ -61,14 +45,25 @@ const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
   };
 
   const mouseEnterHandler = (text: string) => {
-    setValue('destination', text);
+    setSearchInput(text);
+  };
+
+  const submitHandler = (input: string) => {
+    if (!input.trim()) return toast.error('請輸入目的地', { position: 'bottom-center' });
+    setAutoCompletes([]);
+
+    if (window.width > 640) {
+      toggleSidebarHandler(true);
+    }
+
+    return dispatch(fetchDestinationLatLng(input));
   };
 
   return (
     <>
       <ToastContainer />
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={() => submitHandler(searchInput)}
         className="relative"
         data-testid="search-form"
         id="search-form"
@@ -77,11 +72,10 @@ const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
           type="text"
           id="destination"
           placeholder="Hi, 現在想去哪裡？"
-          {...register('destination', {
-            onChange: changeHandler,
-          })}
+          value={searchInput}
+          onChange={changeHandler}
         />
-        <button onClick={handleSubmit(onSubmit)} className="submit-btn">
+        <button onClick={() => submitHandler(searchInput)} className="submit-btn">
           <SearchIcon fill="#9a9a9a" />
         </button>
       </form>
