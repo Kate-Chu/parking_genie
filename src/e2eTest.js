@@ -61,7 +61,7 @@ const URL = 'https://kate-chu.github.io/parking_genie/';
     visible: true,
   });
 
-  // pending: research how to screenshot the new page and delay for closing the browser
+  // pending: need to know how to screenshot the new page and delay for closing the browser
   // await page.screenshot({ path: "after-click-navigation.png", delay: 5000 });
   // await browser.close();
 })();

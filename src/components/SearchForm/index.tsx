@@ -72,6 +72,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
           type="text"
           id="destination"
           placeholder="Hi, 現在想去哪裡？"
+          autoComplete="off"
           value={searchInput}
           onChange={changeHandler}
         />
