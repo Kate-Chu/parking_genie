@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { LatLngTuple } from 'leaflet';
 import { useAppSelector } from '../../store';
 import { ReactComponent as NavigationIcon } from '../../assets/navigation.svg';
-import { LINE_TAIWAN } from '../../data/data';
+import { TAIPEI_TRANE_STATION } from '../../data/data';
 import transformCoord from '../../utils/transformCoord';
 import navigationUrlGenerator from '../../utils/navigationUrlGenerator';
 import type { ParkingLotsInfo as ParkingLotsInfoType } from '../../types';
@@ -23,7 +23,7 @@ const LinkItem: React.FC<LinkItemProps> = (props) => {
 
   const destinationPlaceId = useAppSelector((state) => state.user.destination.placeId);
 
-  const origin = userLocation || LINE_TAIWAN;
+  const origin = userLocation || TAIPEI_TRANE_STATION;
 
   const destination = {
     latLng: position,

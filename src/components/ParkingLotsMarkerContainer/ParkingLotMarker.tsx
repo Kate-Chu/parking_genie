@@ -5,7 +5,7 @@ import { ParkingLotsInfo } from '../../types';
 import { useAppSelector } from '../../store';
 import navigationUrlGenerator from '../../utils/navigationUrlGenerator';
 import transformCoord from '../../utils/transformCoord';
-import { LINE_TAIWAN } from '../../data/data';
+import { TAIPEI_TRANE_STATION } from '../../data/data';
 import './ParkingLotMarker.scss';
 
 type ParkingLotsMarkerProps = {
@@ -18,7 +18,7 @@ const ParkingLotsMarker: React.FC<ParkingLotsMarkerProps> = (props) => {
   const position: LatLngTuple = transformCoord([Number(data.tw97x), Number(data.tw97y)]);
 
   const userLocation = useAppSelector((state) => state.user.currentLocation.latLng);
-  const origin = userLocation || LINE_TAIWAN;
+  const origin = userLocation || TAIPEI_TRANE_STATION;
 
   const destinationPlaceId = useAppSelector((state) => state.user.destination.placeId);
 

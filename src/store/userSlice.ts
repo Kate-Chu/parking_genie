@@ -3,7 +3,7 @@ import { LatLngExpression, LatLngTuple, LocationEvent } from 'leaflet';
 import {
   TAIPEI_LNG,
   TAIPEI_LAT,
-  LINE_TAIWAN,
+  TAIPEI_TRANE_STATION,
   GEOCODING_ADDRESS,
   GEOCODING_LAT_LNG,
 } from '../data/data';
@@ -94,7 +94,7 @@ const userSlice = createSlice({
             Math.floor(currentLatLan.lat) !== TAIPEI_LAT ||
             Math.floor(currentLatLan.lng) !== TAIPEI_LNG
           ) {
-            state.currentLocation.latLng = LINE_TAIWAN;
+            state.currentLocation.latLng = TAIPEI_TRANE_STATION;
             state.currentLocation.isRealLocation = false;
           } else {
             state.currentLocation.latLng = [
