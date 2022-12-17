@@ -15,6 +15,7 @@ type SearchFormProps = {
 const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
   const [searchInput, setSearchInput] = useState<string>('');
   const [autoCompletes, setAutoCompletes] = useState<any[] | void>([]);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const window = useWindowDimensions();
   const provider = new OpenStreetMapProvider();
@@ -44,15 +45,21 @@ const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
 
   const changeHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
-    const data = await fetchAutoCompleteData(e.target.value);
-    setAutoCompletes(data);
+    if (isSubmitted) {
+      setAutoCompletes([]);
+    } else {
+      const data = await fetchAutoCompleteData(e.target.value);
+      setAutoCompletes(data);
+    }
   };
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!searchInput.trim())
-      return toast.error('請輸入目的地', { position: 'bottom-center' });
+    setIsSubmitted(true);
     setAutoCompletes([]);
+    if (!searchInput.trim()) {
+      return toast.error('請輸入目的地', { position: 'bottom-center' });
+    }
 
     if (window.width > 640) {
       toggleSidebarHandler(true);
