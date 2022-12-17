@@ -53,25 +53,24 @@
   position: relative;
 }
 
-.circle {
-  position: fixed;
-  border-radius: 50%;
+// .circle {
+//   position: fixed;
 
-  &.circle-a {
-    /*   left-top */
-    width: 40rem;
-    height: 40rem;
-    left: -13rem;
-    top: -22rem;
-    background-color: #ff9b2f;
-  }
+//   &.circle-a {
+//     /*   left-top */
+//     background-image: url('../../assets/orange-1.png');
+//     width: 20rem;
+//     height: 20rem;
+//     // left: -13rem;
+//     // top: -22rem;
+//   }
 
-  &.circle-b {
-    /*   right-bottom */
-    width: 50rem;
-    height: 50rem;
-    right: -22rem;
-    bottom: -28rem;
-    background-color: #ff9b2f;
-  }
-}
+//   &.circle-b {
+//     /*   right-bottom */
+//     width: 50rem;
+//     height: 50rem;
+//     right: -22rem;
+//     bottom: -28rem;
+//     background-color: #ff9b2f;
+//   }
+// }

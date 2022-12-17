@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import companyLogo from '../../assets/company-logo.jpg';
 import mapLogo from '../../assets/map.png';
+import abstractShape from '../../assets/orange-1.png';
 import './about.scss';
 
 const About = () => {
@@ -35,10 +36,16 @@ const About = () => {
           <span className="ml-4 mb-2 font-medium text-gray-80">&crarr; 回到地圖</span>
         </Link>
       </section>
-      <section className="decoration">
-        <div className="circle circle-a" />
-        <div className="circle circle-b" />
-      </section>
+      <img
+        src={abstractShape}
+        alt="abstract shape"
+        className="absolute top-[-10%] left-[-20%] h-2/5 w-2/5 -rotate-[-20]"
+      />
+      <img
+        src={abstractShape}
+        alt="abstract shape"
+        className="absolute bottom-[-10%] right-[-20%] h-2/5 w-2/5 rotate-180"
+      />
     </main>
   );
 };
