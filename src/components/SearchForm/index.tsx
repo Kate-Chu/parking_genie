@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import { useAppDispatch } from '../../store';
@@ -14,9 +14,9 @@ type SearchFormProps = {
 
 const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
   const [searchInput, setSearchInput] = useState<string>('');
-  const window = useWindowDimensions();
-  const dispatch = useAppDispatch();
   const [autoCompletes, setAutoCompletes] = useState<any[] | void>([]);
+  const dispatch = useAppDispatch();
+  const window = useWindowDimensions();
   const provider = new OpenStreetMapProvider();
 
   const fetchAutoCompleteData = async (input: string) => {
@@ -26,12 +26,6 @@ const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
     } catch (error) {
       return console.log(error);
     }
-  };
-
-  const changeHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(e.target.value);
-    const data = await fetchAutoCompleteData(e.target.value);
-    setAutoCompletes(data);
   };
 
   const clickAutoCompleteHandler = (text: string) => {
@@ -48,22 +42,30 @@ const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
     setSearchInput(text);
   };
 
-  const submitHandler = (input: string) => {
-    if (!input.trim()) return toast.error('請輸入目的地', { position: 'bottom-center' });
+  const changeHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value);
+    const data = await fetchAutoCompleteData(e.target.value);
+    setAutoCompletes(data);
+  };
+
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchInput.trim())
+      return toast.error('請輸入目的地', { position: 'bottom-center' });
     setAutoCompletes([]);
 
     if (window.width > 640) {
       toggleSidebarHandler(true);
     }
 
-    return dispatch(fetchDestinationLatLng(input));
+    return dispatch(fetchDestinationLatLng(searchInput));
   };
 
   return (
     <>
       <ToastContainer />
       <form
-        onSubmit={() => submitHandler(searchInput)}
+        onSubmit={(e) => submitHandler(e)}
         className="relative"
         data-testid="search-form"
         id="search-form"
@@ -76,7 +78,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ toggleSidebarHandler }) => {
           value={searchInput}
           onChange={changeHandler}
         />
-        <button onClick={() => submitHandler(searchInput)} className="submit-btn">
+        <button onClick={(e) => submitHandler(e)} className="submit-btn">
           <SearchIcon fill="#9a9a9a" />
         </button>
       </form>

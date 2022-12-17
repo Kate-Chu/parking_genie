@@ -24,20 +24,21 @@ import {
 } from '../../store/parkingLotsSlice';
 import transformCoord from '../../utils/transformCoord';
 
+const locateBtnIcon = <LocationCrossIcon fill="#003060" className="h-5 w-5" />;
+const questionIcon = <QuestionIcon fill="#003060" className="h-5 w-5" />;
+const payBtnIcon = <DollarIcon fill="#003060" className="h-5 w-5" />;
+
 const Homepage = () => {
   const [hoverMarkerId, setHoverMarkerId] = useState<string | null>(null);
-  const dispatch = useAppDispatch();
   const [showSidebar, setShowSidebar] = useState(false);
   const mapBounds = useAppSelector((state) => state.parkingLots.mapBounds);
   const parkingLotsInfo = useAppSelector((state) => state.parkingLots.parkingLotsInfo);
   const hideUnknownSpacesLots = useAppSelector(
     (state) => state.parkingLots.hideUnknownSpacesLots,
   );
+  const map = useMap();
   const { isOpen, toggleModal } = useModal();
-
-  const locateBtnIcon = <LocationCrossIcon fill="#003060" className="h-5 w-5" />;
-  const questionIcon = <QuestionIcon fill="#003060" className="h-5 w-5" />;
-  const payBtnIcon = <DollarIcon fill="#003060" className="h-5 w-5" />;
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchParkingLotsInfo());
@@ -58,7 +59,6 @@ const Homepage = () => {
     dispatch(parkingLotsActions.setNearbyParkingLots(list));
   }, [mapBounds, dispatch, parkingLotsInfo, hideUnknownSpacesLots]);
 
-  const map = useMap();
   const currentLocation = useAppSelector((state) => state.user.currentLocation.latLng);
 
   const toggleSidebarHandler = useCallback((input: boolean) => {
