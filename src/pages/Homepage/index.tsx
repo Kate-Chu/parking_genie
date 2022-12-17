@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { TileLayer, useMap } from 'react-leaflet';
 import { ToastContainer } from 'react-toastify';
+import dayjs from 'dayjs';
 import Sidebar from '../../layout/Sidebar';
 import SearchForm from '../../components/SearchForm';
 import SquareButton from '../../components/SquareButton';
@@ -30,7 +31,10 @@ const payBtnIcon = <DollarIcon fill="#003060" className="h-5 w-5" />;
 
 const Homepage = () => {
   const [hoverMarkerId, setHoverMarkerId] = useState<string | null>(null);
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
+  const [updatedTime, setUpdatedTime] = useState<string>(
+    dayjs().format('YYYY-MM-DD HH:mm:ss'),
+  );
   const mapBounds = useAppSelector((state) => state.parkingLots.mapBounds);
   const parkingLotsInfo = useAppSelector((state) => state.parkingLots.parkingLotsInfo);
   const hideUnknownSpacesLots = useAppSelector(
@@ -43,9 +47,11 @@ const Homepage = () => {
   useEffect(() => {
     dispatch(fetchParkingLotsInfo());
     dispatch(fetchAvailableSpacesInfo());
+    setUpdatedTime(dayjs().format('YYYY-MM-DD HH:mm:ss'));
 
     const interval = setInterval(() => {
       dispatch(fetchAvailableSpacesInfo());
+      setUpdatedTime(dayjs().format('YYYY-MM-DD HH:mm:ss'));
     }, 30000);
 
     return () => clearInterval(interval);
@@ -131,6 +137,9 @@ const Homepage = () => {
         <ParkingLotsMarkerContainer hoverMarkerId={hoverMarkerId} />
       </div>
       <AboutButton />
+      <h1 className="fixed bottom-4 left-4 z-[1000] rounded-md bg-[rgba(255,255,255,0.6)] px-2 text-[0.8rem]">
+        最後更新時間：{updatedTime}
+      </h1>
     </>
   );
 };

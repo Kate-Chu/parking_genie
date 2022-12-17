@@ -5,6 +5,7 @@
   "homepage": "https://kate-chu.github.io/parking_genie",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
+    "dayjs": "^1.11.7",
     "gh-pages": "^4.0.0",
     "leaflet": "^1.9.2",
     "leaflet-geosearch": "^3.7.0",
