@@ -18,6 +18,7 @@ import { ReactComponent as DollarIcon } from '../../assets/dollar.svg';
 import { ReactComponent as QuestionIcon } from '../../assets/question.svg';
 import linePayLogo from '../../assets/line-pay.png';
 import { useAppSelector, useAppDispatch } from '../../store';
+import { fetchCurrentLocation } from '../../store/userSlice';
 import {
   fetchParkingLotsInfo,
   fetchAvailableSpacesInfo,
@@ -45,6 +46,12 @@ const Homepage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    dispatch(parkingLotsActions.setMapBounds(map.getBounds()));
+
+    map.locate().on('locationfound', (e) => {
+      dispatch(fetchCurrentLocation(e));
+    });
+
     dispatch(fetchParkingLotsInfo());
     dispatch(fetchAvailableSpacesInfo());
     setUpdatedTime(dayjs().format('YYYY-MM-DD HH:mm:ss'));
@@ -55,7 +62,7 @@ const Homepage = () => {
     }, 30000);
 
     return () => clearInterval(interval);
-  }, [dispatch]);
+  }, [dispatch, map]);
 
   useEffect(() => {
     const list = parkingLotsInfo.filter((parkLot) => {

@@ -1,31 +1,19 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import L from 'leaflet';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { toast } from 'react-toastify';
-import { useAppDispatch, useAppSelector } from '../../store';
-import { fetchCurrentLocation } from '../../store/userSlice';
-import { parkingLotsActions } from '../../store/parkingLotsSlice';
+import { useAppSelector } from '../../store';
+
 import carIcon from '../../assets/car.png';
 import './UserLocationMarker.scss';
 
 const UserLocationMarker = () => {
   const map = useMap();
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(parkingLotsActions.setMapBounds(map.getBounds()));
-  }, [dispatch, map]);
 
   const icon = L.icon({
     iconUrl: carIcon,
     iconSize: [45, 45],
   });
-
-  useEffect(() => {
-    map.locate().on('locationfound', (e) => {
-      dispatch(fetchCurrentLocation(e));
-    });
-  }, [dispatch, map]);
 
   const currentLocation = useAppSelector((state) => state.user.currentLocation.latLng);
   const isRealLocation = useAppSelector(

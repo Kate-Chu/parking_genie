@@ -19,6 +19,9 @@ describe('parking lots reducer', () => {
     mapBounds: {} as LatLngBounds,
     hideUnknownSpacesLots: true,
   };
+
+  afterEach(jest.clearAllMocks);
+
   test('should return initial state', () => {
     const initialState: ParkingLotsState = state;
     const action = { type: 'unknown' };
@@ -134,5 +137,33 @@ describe('parking lots reducer', () => {
     const expectedState = { ...state, nearbyParkingLots: parkingLotsInfo };
     const result = parkingLotsReducer(initialState, action);
     expect(result.availableSpaces[0].id).toEqual(expectedState.availableSpaces[0].id);
+  });
+
+  test('fetch parking lots info', async () => {
+    const fetchParkingLotsResponse = {
+      data: {
+        UDATETIME: 'Thu Nov 10 00:00:00 CST 2022',
+        park: [
+          {
+            id: 1,
+            name: '',
+            address: '',
+            tel: '',
+            payex: '',
+            serviceTime: '',
+            latlng: { lat: 25, lng: 121 },
+            totalCar: 10,
+          },
+        ],
+      },
+    };
+
+    const fetchParkingLotsInfoMock = jest
+      .fn()
+      .mockResolvedValue(fetchParkingLotsResponse);
+    const response = await fetchParkingLotsInfoMock();
+    expect(fetchParkingLotsInfoMock).toBeCalledTimes(1);
+    expect(response).toEqual(fetchParkingLotsResponse);
+    expect(response.data.park).toHaveLength(1);
   });
 });
